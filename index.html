@@ -9,6 +9,12 @@
       href="https://fonts.googleapis.com/css?family=Roboto"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
@@ -31,14 +37,13 @@
           <div class="placeholder"></div>
         </div>
       </div>
-      <div class="projects">
+      <!-- <div class="projects">
         <div class="flex__row">
           <div class="row__container">
             <div class="img__conatiner">
               <div class="image image-1"></div>
             </div>
             <div class="info">
-              <!-- <h2 class="info__head">Meal Revival</h2> -->
               <p class="info__links"><a>live app</a> | <a>repo</a></p>
               <p class="info__text">
                 A web app that connects local restaurants to organizations in
@@ -54,7 +59,6 @@
               <div class="image image-2"></div>
             </div>
             <div class="info">
-              <!-- <h2 class="info__head">EZ Events</h2> -->
               <p class="info__links"><a>live app</a> | <a>repo</a></p>
               <p class="info__text">
                 A simple web app built with Node and jQuery that allows event
@@ -64,8 +68,59 @@
             </div>
           </div>
         </div>
+      </div> -->
+      <div class="work grid">
+        <div class="grid__item">
+          <div class="img">
+            <img src="assets/landing_fullscreen.png" />
+            <div class="overlay">
+              <h3 class="overlay__head text--white">Meal Revival</h3>
+              <p class="overlay__text text--white">
+                React | Redux | Node | Mongo
+              </p>
+            </div>
+          </div>
+          <div class="info">
+            <p class="info__links"><a>live app</a> | <a>repo</a></p>
+            <p class="info__text">
+              A web app that connects local restaurants to organizations in need
+              of food donations. Restaurants simply list their donations which
+              can then be viewed by others based on thier location.
+            </p>
+          </div>
+        </div>
+        <div class="grid__item">
+          <div class="img">
+            <img src="assets/ezEvents.jpg" />
+            <div class="overlay">
+              <h3 class="overlay__head text--white">EZ Events</h3>
+              <p class="overlay__text text--white">
+                jQuery | Node | Express | Mongo
+              </p>
+            </div>
+          </div>
+          <div class="info">
+            <p class="info__links"><a>live app</a> | <a>repo</a></p>
+            <p class="info__text">
+              A simple web app built with Node and jQuery that allows event
+              coordinators the ability to easily manage, track, and update event
+              invoices.
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="contact"></div>
+      <div class="contact">
+        <h2>Let's Connect</h2>
+        <a class="contact-link"><p>ryanjacobwilliams@gmail.com</p></a>
+        <ul class="connect__list">
+          <a class="list__item"
+            ><li class="icon__link"><i class="fab fa-github fa-2x"></i></li
+          ></a>
+          <a class="list__item"
+            ><li class="icon__link"><i class="fab fa-linkedin fa-2x"></i></li
+          ></a>
+        </ul>
+      </div>
     </main>
   </body>
 </html>
