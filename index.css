@@ -12,6 +12,11 @@ html {
   /* background-color: #f6f6f6; */
 }
 
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .red {
   color: #f26a6b;
 }
@@ -39,6 +44,51 @@ html {
 }
 
 /* projects */
+
+.projects__container {
+  margin: 10vh 0;
+}
+
+.project {
+  margin-bottom: 12vh;
+  display: block;
+}
+
+.project__image {
+  max-width: 1000px;
+}
+
+.project__details {
+  display: flex;
+}
+
+.project__info {
+  width: 45%;
+  letter-spacing: 1.2px;
+}
+
+.project__name {
+  font-size: 1.5em;
+  margin: 2vh 0;
+}
+
+.project__tech {
+  font-size: 0.85em;
+  margin: 2vh 0;
+}
+
+.project__links li {
+  list-style: none;
+  margin-bottom: 1vh;
+}
+
+.project__description {
+  width: 80%;
+  letter-spacing: 1.2px;
+  margin: 2vh 0;
+  line-height: 2;
+}
+
 .work {
   padding-bottom: 10vh;
 }
@@ -160,11 +210,11 @@ html {
 
   .about__info,
   .about__text {
-    width: 80%;
+    width: 90%;
   }
 
   .about__info {
-    font-size: 1.25em;
+    font-size: 1.5em;
   }
 
   .about__header {
@@ -241,5 +291,11 @@ html {
     max-width: 100%;
     height: auto;
     position: relative;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .about {
+    height: 100vh;
   }
 }
