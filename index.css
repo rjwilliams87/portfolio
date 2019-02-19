@@ -23,7 +23,8 @@ html {
 
 .progress-bar {
   height: 2px;
-  background: #f26a6b;
+  /* background: #f26a6b; */
+  background: #ee5353;
   width: 0%;
 }
 
@@ -33,7 +34,8 @@ main {
 }
 
 .red {
-  color: #f26a6b;
+  /* color: #f26a6b; */
+  color: #ee5353;
 }
 
 .bold {
@@ -164,6 +166,7 @@ img {
   justify-content: center;
 }
 
+.icon__link,
 .list__item {
   list-style: none;
   margin: 10px;
@@ -177,9 +180,9 @@ img {
 .blip {
   width: 12px;
   height: 12px;
-  border: 5px solid #f26a6b;
+  border: 5px solid #ee5353;
   border-radius: 30px;
-  background-color: #f26a6b;
+  background-color: #ee5353;
   transition: all 0.5s ease-out;
   border: 1px solid white;
   animation-name: grow;
