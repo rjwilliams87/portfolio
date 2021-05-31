@@ -1,5 +1,5 @@
 const text = 'Home';
 
-const Home = () => <a href="#home">{text}</a>;
+const Home = () => <div>{text}</div>;
 
 export default Home;
