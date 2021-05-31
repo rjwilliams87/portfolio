@@ -16,5 +16,5 @@ RUN npm ci
 
 # start app
 RUN npm run build
-EXPOSE 3000
+EXPOSE $PORT
 CMD npm run start
