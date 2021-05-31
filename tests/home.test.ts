@@ -6,9 +6,7 @@ describe('Home', () => {
     const { render } = await getPage({
       route: '/home',
     });
-
     render();
-
     expect(await screen.findByText('Home')).toBeInTheDocument();
   });
 });
