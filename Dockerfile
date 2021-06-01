@@ -34,9 +34,6 @@ COPY --from=builder /app/package.json ./package.json
 
 USER nextjs
 
-# not supported by heroku but can be used for local testing
-# EXPOSE $PORT
-
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry.

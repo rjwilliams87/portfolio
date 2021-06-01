@@ -1,0 +1,1 @@
+export { ShortcutFolder } from './ShortcutFolder';
