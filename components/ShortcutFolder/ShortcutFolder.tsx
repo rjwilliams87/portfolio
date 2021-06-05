@@ -1,12 +1,21 @@
+import Draggable from 'react-draggable';
+
 const folder = {
-  width: '200px',
-  height: '90%',
+  width: '100px',
+  height: '65px',
   border: '1px solid black',
-  margin: '0 2.5px',
+  margin: '1rem 2.5px',
+  cursor: 'pointer',
 };
 
-const ShortcutFolder = () => {
-  return <div style={folder}></div>;
+const ShortcutFolder = ({ title }: { title: string }) => {
+  return (
+    <Draggable>
+      <div style={folder} id={`${title}-dnd-content`}>
+        {title}
+      </div>
+    </Draggable>
+  );
 };
 
 export { ShortcutFolder };

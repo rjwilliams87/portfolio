@@ -1,4 +1,6 @@
 import { Layout } from '../../components/Layout';
+import { ShortcutFolder } from '../../components/ShortcutFolder';
+import { SHORTCUTS, TShortcut } from '../../lib/shortcuts';
 
 // const text = 'Home';
 
@@ -12,6 +14,14 @@ import { Layout } from '../../components/Layout';
  * have a nav bar
  */
 
-const Home = () => <Layout />;
+const Home = () => {
+  return (
+    <Layout>
+      {SHORTCUTS.map(({ title }: TShortcut) => (
+        <ShortcutFolder key={title} title={title} />
+      ))}
+    </Layout>
+  );
+};
 
 export default Home;

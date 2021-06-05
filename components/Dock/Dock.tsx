@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { Menu } from '../Menu';
 
 const styles = {
@@ -47,13 +49,20 @@ const DockTab = () => {
 };
 
 const Dock = () => {
-  const tabs = ['About', 'Portfolio'];
+  const [showMenu, setShowMenu] = useState<boolean>(false);
+
+  const tabs = ['About', 'Portfolio']; // will need to be pulled from context
+
+  const toggleMenu = () => setShowMenu(!showMenu);
+
   return (
     <>
-      <Menu />
+      {showMenu && <Menu />}
       <div style={styles}>
         <div style={container}>
-          <button style={{ height: '90%', width: '92%' }}>Start</button>
+          <button style={{ height: '90%', width: '92%' }} onClick={toggleMenu}>
+            Start
+          </button>
         </div>
         <div style={container2}>
           {tabs.map((tab, index) => (
