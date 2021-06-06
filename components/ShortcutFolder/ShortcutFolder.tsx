@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Draggable from 'react-draggable';
 
 const folder = {
@@ -9,12 +11,26 @@ const folder = {
 };
 
 const ShortcutFolder = ({ title }: { title: string }) => {
+  const [open, setOpen] = useState<boolean>(false);
+
+  const handleOpen = (event) => {
+    event.preventDefault();
+    setOpen(true);
+  };
+
   return (
-    <Draggable>
-      <div style={folder} id={`${title}-dnd-content`}>
-        {title}
-      </div>
-    </Draggable>
+    <>
+      {open && <div>Hello open</div>}
+      <Draggable>
+        <div
+          style={folder}
+          id={`${title}-dnd-content`}
+          onDoubleClick={handleOpen}
+        >
+          {title}
+        </div>
+      </Draggable>
+    </>
   );
 };
 

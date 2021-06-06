@@ -1,6 +1,10 @@
 import { Layout } from '../../components/Layout';
 import { ShortcutFolder } from '../../components/ShortcutFolder';
-import { SHORTCUTS, TShortcut } from '../../lib/shortcuts';
+import {
+  useShortcutsState,
+  withShortcutsContext,
+} from '../../context/shortcuts';
+import { TShortcut } from '../../lib/shortcuts';
 
 // const text = 'Home';
 
@@ -12,16 +16,20 @@ import { SHORTCUTS, TShortcut } from '../../lib/shortcuts';
  * be responsive
  *
  * have a nav bar
+ *
+ * pull open folder context and render a modal for each open folder
  */
 
 const Home = () => {
+  const shortcuts = useShortcutsState();
+
   return (
     <Layout>
-      {SHORTCUTS.map(({ title }: TShortcut) => (
+      {shortcuts.map(({ title }: TShortcut) => (
         <ShortcutFolder key={title} title={title} />
       ))}
     </Layout>
   );
 };
 
-export default Home;
+export default withShortcutsContext(Home);
