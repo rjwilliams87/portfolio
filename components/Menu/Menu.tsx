@@ -75,7 +75,12 @@ const MenuItem = ({ item }) => {
 
 const Menu = () => {
   return (
-    <div style={menu}>
+    <div
+      style={menu}
+      onBlur={(e) => {
+        console.log(e);
+      }}
+    >
       {SHORTCUTS.map((shortcut) => (
         <MenuItem key={`menu-item-${shortcut.title}`} item={shortcut} />
       ))}

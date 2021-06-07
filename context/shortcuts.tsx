@@ -1,35 +1,46 @@
 import React from 'react';
 
 import { TShortcut, SHORTCUTS } from '../lib/shortcuts';
+import { withContext } from './context.hoc';
+import {
+  IContextProps,
+  IDispatchAction,
+  TContextDispatch,
+} from './context.types';
+
+/************************************/
+/****** INTERFACES AND TYPES ********/
+/************************************/
 
 type TShortcutState = TShortcut[];
 
-type TShortcutAction = {
+interface IShortcutAction extends IDispatchAction {
   type: 'add' | 'remove';
   value: TShortcut;
-};
+}
 
 type TShortcutHandler = (
   state: TShortcutState,
-  action: TShortcutAction,
+  action: IShortcutAction,
 ) => TShortcutState;
 
-type TShortcutHandlers = {
+interface IShortcutHandlers {
   add: TShortcutHandler;
   remove: TShortcutHandler;
-};
-
-type TContextProps = {
-  children: JSX.Element | JSX.Element[] | null | undefined;
-};
-
-export interface WithShortcutsContextProps extends TContextProps {
-  displayName?: string;
 }
 
+/************************************/
+/****** CONTEXT OBJECTS *************/
+/************************************/
+
 export const ShortcutsState = React.createContext<TShortcutState>(SHORTCUTS);
+
 export const ShortcutsDispatch =
-  React.createContext<React.Dispatch<TShortcutAction> | null>(null);
+  React.createContext<TContextDispatch<IShortcutAction> | null>(null);
+
+/************************************/
+/*** SHORTCUTS CONTEXT HOOKS ********/
+/************************************/
 
 export const useShortcutsState = (): TShortcutState => {
   const context = React.useContext(ShortcutsState);
@@ -43,7 +54,7 @@ export const useShortcutsState = (): TShortcutState => {
   return context;
 };
 
-export const useShortcutsDispatch = (): React.Dispatch<TShortcutAction> => {
+export const useShortcutsDispatch = (): React.Dispatch<IShortcutAction> => {
   const context = React.useContext(ShortcutsDispatch);
 
   if (!context) {
@@ -53,25 +64,29 @@ export const useShortcutsDispatch = (): React.Dispatch<TShortcutAction> => {
   return context;
 };
 
+/************************************/
+/******* REDUCER AND HELPERS ********/
+/************************************/
+
 const addShortcut: TShortcutHandler = (
   state: TShortcutState,
-  action: TShortcutAction,
+  action: IShortcutAction,
 ): TShortcutState => {
   return [...state, action.value];
 };
 // to do remove by id
 const removeShortcut: TShortcutHandler = (
   state: TShortcutState,
-  action: TShortcutAction,
+  action: IShortcutAction,
 ): TShortcutState => {
   return [...state, action.value];
 };
 
-const shortcutContextReducer: React.Reducer<TShortcutState, TShortcutAction> = (
+const shortcutContextReducer: React.Reducer<TShortcutState, IShortcutAction> = (
   state: TShortcutState,
-  action: TShortcutAction,
+  action: IShortcutAction,
 ) => {
-  const handlers: TShortcutHandlers = {
+  const handlers: IShortcutHandlers = {
     add: addShortcut,
     remove: removeShortcut,
   };
@@ -80,9 +95,15 @@ const shortcutContextReducer: React.Reducer<TShortcutState, TShortcutAction> = (
   return handler(state, action) || state;
 };
 
-export const ShortcutsContext = ({ children }: TContextProps) => {
+/************************************/
+/***** CONTEXT PROVIDER AND HOC *****/
+/************************************/
+
+export const ShortcutsContext: React.ComponentType<IContextProps> = ({
+  children,
+}: IContextProps) => {
   const [state, dispatch] = React.useReducer<
-    React.Reducer<TShortcutState, TShortcutAction>
+    React.Reducer<TShortcutState, IShortcutAction>
   >(shortcutContextReducer, SHORTCUTS);
 
   return (
@@ -94,20 +115,4 @@ export const ShortcutsContext = ({ children }: TContextProps) => {
   );
 };
 
-export const withShortcutsContext = <P extends WithShortcutsContextProps>(
-  Component: React.ComponentType<P>,
-): React.ComponentType<P> => {
-  const displayName = Component?.displayName || 'Component';
-
-  const ComponentWithTheme = (props: P) => {
-    return (
-      <ShortcutsContext>
-        <Component {...(props as P)} />
-      </ShortcutsContext>
-    );
-  };
-
-  ComponentWithTheme.displayName = `withShortcuts${displayName}`;
-
-  return ComponentWithTheme;
-};
+export const withShortcutsContext = withContext(ShortcutsContext);

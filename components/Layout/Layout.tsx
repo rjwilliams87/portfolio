@@ -1,3 +1,10 @@
+import React from 'react';
+
+import {
+  useMenuDispatch,
+  useMenuState,
+  withMenuContext,
+} from '../../context/menu';
 import { Dock } from '../Dock';
 
 const layout = {
@@ -14,13 +21,36 @@ interface LayoutProps {
   children: JSX.Element | JSX.Element[] | null;
 }
 
-const Layout = ({ children = null }: LayoutProps) => {
+const LayoutComponent = ({ children = null }: LayoutProps) => {
+  const dispatch = useMenuDispatch();
+  const state = useMenuState();
+
+  const close = (event: React.MouseEvent | React.KeyboardEvent): void => {
+    // eslint-disable-next-line
+    // @ts-ignore: next-line
+    const ancestor = event.target.closest('#dock');
+
+    if (ancestor || !state.open) return;
+
+    dispatch({ type: 'close' });
+  };
+
   return (
-    <div style={layout}>
-      <div style={screen}>{children}</div>
+    <div style={layout} role="main">
+      <div
+        style={screen}
+        role="presentation"
+        onMouseUp={close}
+        onClick={close}
+        onKeyPress={close}
+      >
+        {children}
+      </div>
       <Dock />
     </div>
   );
 };
+
+const Layout = withMenuContext(LayoutComponent);
 
 export { Layout };

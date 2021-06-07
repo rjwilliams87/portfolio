@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import React from 'react';
 
+import { useMenuDispatch, useMenuState } from '../../context/menu';
 import { Menu } from '../Menu';
 
 const styles = {
@@ -49,18 +50,28 @@ const DockTab = () => {
 };
 
 const Dock = () => {
-  const [showMenu, setShowMenu] = useState<boolean>(false);
+  const dispatch = useMenuDispatch();
+  const state = useMenuState();
 
   const tabs = ['About', 'Portfolio']; // will need to be pulled from context
 
-  const toggleMenu = () => setShowMenu(!showMenu);
+  const toggle = () => {
+    switch (state.open) {
+      case true:
+        dispatch({ type: 'close' });
+        break;
+      case false:
+        dispatch({ type: 'open' });
+        break;
+    }
+  };
 
   return (
-    <>
-      {showMenu && <Menu />}
+    <div id="dock">
+      {state.open && <Menu />}
       <div style={styles}>
         <div style={container}>
-          <button style={{ height: '90%', width: '92%' }} onClick={toggleMenu}>
+          <button style={{ height: '90%', width: '92%' }} onClick={toggle}>
             Start
           </button>
         </div>
@@ -85,7 +96,7 @@ const Dock = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
