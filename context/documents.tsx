@@ -16,7 +16,7 @@ export interface IBaseDocument {
   id: string;
   name: string;
   type: 'email' | 'folder' | 'game' | 'media' | 'text';
-  component: JSX.Element;
+  component: React.ComponentType;
 }
 
 export interface IDocumentState extends IBaseDocument {

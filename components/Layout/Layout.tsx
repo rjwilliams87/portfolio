@@ -17,11 +17,7 @@ const screen = {
   height: '100%',
 };
 
-interface LayoutProps {
-  children: JSX.Element | JSX.Element[] | null;
-}
-
-const LayoutComponent = ({ children = null }: LayoutProps) => {
+const LayoutComponent: React.FC = ({ children }) => {
   const dispatch = useMenuDispatch();
   const state = useMenuState();
 

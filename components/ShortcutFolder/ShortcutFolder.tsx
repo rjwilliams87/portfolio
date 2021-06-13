@@ -1,6 +1,6 @@
-import { useState } from 'react';
-
 import Draggable from 'react-draggable';
+
+import { useDocumentsDispatch, IBaseDocument } from '../../context/documents';
 
 const folder = {
   width: '100px',
@@ -10,17 +10,39 @@ const folder = {
   cursor: 'pointer',
 };
 
+const About: IBaseDocument = {
+  id: 'about_0',
+  name: 'About',
+  type: 'folder',
+  component: () => (
+    <Draggable>
+      {/* on focus the z index needs to plus 1 */}
+      {/* on blur the z index needs to minus 1 */}
+      <div
+        style={{
+          width: '500px',
+          height: '500px',
+          border: '1px solid green',
+          position: 'absolute',
+          background: 'green',
+          zIndex: 9,
+        }}
+      />
+    </Draggable>
+  ),
+};
+
 const ShortcutFolder = ({ title }: { title: string }) => {
-  const [open, setOpen] = useState<boolean>(false);
+  // const [open, setOpen] = useState<boolean>(false);
+  const dispatch = useDocumentsDispatch();
 
   const handleOpen = (event) => {
     event.preventDefault();
-    setOpen(true);
+    dispatch({ type: 'open', value: About });
   };
 
   return (
     <>
-      {open && <div>Hello open</div>}
       <Draggable>
         <div
           style={folder}

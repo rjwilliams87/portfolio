@@ -1,5 +1,9 @@
 import React from 'react';
 
+import {
+  // useDocumentsDispatch,
+  useDocumentsState,
+} from '../../context/documents';
 import { useMenuDispatch, useMenuState } from '../../context/menu';
 import { Menu } from '../Menu';
 
@@ -49,11 +53,20 @@ const DockTab = () => {
   return <div style={folder}></div>;
 };
 
+/**
+ *
+ * TO DO:
+ * - build out tab component styles
+ * - remove document on tab exit/close/etc
+ * - live time
+ * - button styles
+ */
 const Dock = () => {
+  const documents = useDocumentsState();
   const dispatch = useMenuDispatch();
   const state = useMenuState();
 
-  const tabs = ['About', 'Portfolio']; // will need to be pulled from context
+  // const tabs = ['About', 'Portfolio']; // will need to be pulled from context
 
   const toggle = () => {
     switch (state.open) {
@@ -76,8 +89,8 @@ const Dock = () => {
           </button>
         </div>
         <div style={container2}>
-          {tabs.map((tab, index) => (
-            <DockTab key={`shortcut-${index}`} />
+          {documents.map((document) => (
+            <DockTab key={`shortcut-${document.id}`} />
           ))}
         </div>
         <div style={container3}>
