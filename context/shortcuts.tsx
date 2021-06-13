@@ -54,11 +54,13 @@ export const useShortcutsState = (): TShortcutState => {
   return context;
 };
 
-export const useShortcutsDispatch = (): React.Dispatch<IShortcutAction> => {
+export const useShortcutsDispatch = (): TContextDispatch<IShortcutAction> => {
   const context = React.useContext(ShortcutsDispatch);
 
   if (!context) {
-    throw new Error('useThemeDispatch must be called within ShortcutsContext');
+    throw new Error(
+      'useShortcutsDispatch must be called within ShortcutsContext',
+    );
   }
 
   return context;
@@ -74,6 +76,7 @@ const addShortcut: TShortcutHandler = (
 ): TShortcutState => {
   return [...state, action.value];
 };
+
 // to do remove by id
 const removeShortcut: TShortcutHandler = (
   state: TShortcutState,
