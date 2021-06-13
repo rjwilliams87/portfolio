@@ -15,3 +15,7 @@ export type TReducerHandler = (
   state: any,
   action: Required<IDispatchAction>,
 ) => any;
+
+export interface IGenericReducerHandler<S, A> {
+  (state: S, action: A): S;
+}

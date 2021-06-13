@@ -1,28 +1,12 @@
 import React from 'react';
 
-import { IDispatchAction, TContextDispatch } from './context.types';
-/**
- * A modal can be of different types
- * Each type determines what component is rendered in the UI
- * a folder modal - unique but can be copied / can be opened multiple times
- * a word doc modal - unique
- * a game modal - unique
- * a video modal - unique ?? (may need)
- * a picture modal - unique ?? (may need)
- * a gif modal - unique ?? (may need)
- */
-
-/**
- * No folder can be opened twice but folder copies can be open a the same time
- * No other modal type can be open at the same time
- */
-
-/**
- * when a doc is opened add the doc to list of open modals
- * a modal has an active and an open state
- * active = tab is in the lower menu
- * open = modal is visible on the screen
- */
+import { withContext } from './context.hoc';
+import {
+  IContextProps,
+  IDispatchAction,
+  IGenericReducerHandler,
+  TContextDispatch,
+} from './context.types';
 
 /************************************/
 /****** INTERFACES AND TYPES ********/
@@ -47,17 +31,22 @@ interface IGenericDocumentAction extends IDispatchAction {
   value: any;
 }
 
+interface IBaseDocumentAction extends IGenericDocumentAction {
+  type: 'hide' | 'show';
+  value: { id: string };
+}
+
 interface IOpenDocumentAction extends IGenericDocumentAction {
   type: 'open' | 'close';
   value: IBaseDocument;
 }
 
-interface IShowDocumentAction extends IGenericDocumentAction {
-  type: 'hide' | 'show';
-  value: { id: string };
-}
+type TDocumentsDispatchAction = IBaseDocumentAction | IOpenDocumentAction;
 
-type TDocumentsDispatchAction = IOpenDocumentAction | IShowDocumentAction;
+type TDocumentsReducerHandler = IGenericReducerHandler<
+  TDocumentsState,
+  TDocumentsDispatchAction
+>;
 
 /************************************/
 /****** CONTEXT OBJECTS *************/
@@ -85,7 +74,7 @@ export const useDocumentsState = (): TDocumentsState => {
 };
 
 export const useDocumentsDispatch = (): TContextDispatch<
-  IOpenDocumentAction | IShowDocumentAction
+  IOpenDocumentAction | IBaseDocumentAction
 > => {
   const context = React.useContext(DocumentsDispatch);
 
@@ -115,13 +104,13 @@ const openDocument = (
 
 const closeDocument = (
   state: TDocumentsState,
-  action: IOpenDocumentAction,
+  action: IBaseDocumentAction,
 ): TDocumentsState =>
   state.filter((document) => document.id === action.value.id);
 
 const showDocument = (
   state: TDocumentsState,
-  action: IShowDocumentAction,
+  action: IBaseDocumentAction,
 ): TDocumentsState =>
   state.map((document) => {
     if (document.id !== action.value.id) return document;
@@ -131,7 +120,7 @@ const showDocument = (
 
 const hideDocument = (
   state: TDocumentsState,
-  action: IShowDocumentAction,
+  action: IBaseDocumentAction,
 ): TDocumentsState =>
   state.map((document) => {
     if (document.id !== action.value.id) return document;
@@ -139,25 +128,38 @@ const hideDocument = (
     return document;
   });
 
-interface IGenericReducerHandler<S, A> {
-  (state: S, action: A): S;
-}
-
-type TDocumentsReducerHandler = IGenericReducerHandler<
-  TDocumentsState,
-  TDocumentsDispatchAction
->;
-
 export const documentsContextReducer: React.Reducer<
   TDocumentsState,
   TDocumentsDispatchAction
-> = (state, action) => {
+> = (state: TDocumentsState, action: TDocumentsDispatchAction) => {
   const handlers = {
-    open: openDocument,
-    close: closeDocument,
-    show: showDocument,
-    hide: hideDocument,
+    open: openDocument as TDocumentsReducerHandler,
+    close: closeDocument as TDocumentsReducerHandler,
+    show: showDocument as TDocumentsReducerHandler,
+    hide: hideDocument as TDocumentsReducerHandler,
   };
   const handler: TDocumentsReducerHandler = handlers[action.type];
   return handler(state, action) || state;
 };
+
+/************************************/
+/***** CONTEXT PROVIDER AND HOC *****/
+/************************************/
+
+export const DocumentsContext: React.ComponentType<IContextProps> = ({
+  children,
+}: IContextProps) => {
+  const [state, dispatch] = React.useReducer<
+    React.Reducer<TDocumentsState, TDocumentsDispatchAction>
+  >(documentsContextReducer, []);
+
+  return (
+    <DocumentsState.Provider value={state}>
+      <DocumentsDispatch.Provider value={dispatch}>
+        {children}
+      </DocumentsDispatch.Provider>
+    </DocumentsState.Provider>
+  );
+};
+
+export const withDocumentsContext = withContext(DocumentsContext);
