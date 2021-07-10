@@ -1,16 +1,24 @@
 import React from 'react';
 
-import { TShortcut, SHORTCUTS } from '../lib/shortcuts';
+import { SHORTCUTS } from '../lib/shortcuts';
 import { withContext } from './context.hoc';
 import {
   IContextProps,
   IDispatchAction,
   TContextDispatch,
 } from './context.types';
+import { IBaseFolder } from './folders';
 
 /************************************/
 /****** INTERFACES AND TYPES ********/
 /************************************/
+
+export type TShortcut = {
+  id: string;
+  folder: IBaseFolder;
+  image: string;
+  title: string;
+};
 
 type TShortcutState = TShortcut[];
 

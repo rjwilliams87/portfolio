@@ -1,9 +1,9 @@
 import React from 'react';
 
 import {
-  // useDocumentsDispatch,
-  useDocumentsState,
-} from '../../context/documents';
+  // useFolderDispatch,
+  useFoldersState,
+} from '../../context/folders';
 import { useMenuDispatch, useMenuState } from '../../context/menu';
 import { Menu } from '../Menu';
 
@@ -62,7 +62,7 @@ const DockTab = () => {
  * - button styles
  */
 const Dock = () => {
-  const documents = useDocumentsState();
+  const documents = useFoldersState();
   const dispatch = useMenuDispatch();
   const state = useMenuState();
 

@@ -1,14 +1,11 @@
 import { Layout } from '../../components/Layout';
 import { ShortcutFolder } from '../../components/ShortcutFolder';
+import { useFoldersState, withFoldersContext } from '../../context/folders';
 import {
-  useDocumentsState,
-  withDocumentsContext,
-} from '../../context/documents';
-import {
+  TShortcut,
   useShortcutsState,
   withShortcutsContext,
 } from '../../context/shortcuts';
-import { TShortcut } from '../../lib/shortcuts';
 
 // const text = 'Home';
 
@@ -25,20 +22,20 @@ import { TShortcut } from '../../lib/shortcuts';
  */
 
 const Home = () => {
-  const documents = useDocumentsState();
+  const folders = useFoldersState();
   const shortcuts = useShortcutsState();
 
   return (
     <Layout>
-      {documents.map((document) => {
-        const { component: Component } = document;
-        return <Component key={document.id} />;
+      {folders.map((folder) => {
+        const { component: Component } = folder;
+        return <Component key={folder.id} />;
       })}
-      {shortcuts.map(({ title }: TShortcut) => (
-        <ShortcutFolder key={title} title={title} />
+      {shortcuts.map(({ folder, title }: TShortcut) => (
+        <ShortcutFolder folder={folder} key={title} title={title} />
       ))}
     </Layout>
   );
 };
 
-export default withDocumentsContext(withShortcutsContext(Home));
+export default withFoldersContext(withShortcutsContext(Home));

@@ -1,0 +1,1 @@
+export { AboutFolder } from './AboutFolder';
