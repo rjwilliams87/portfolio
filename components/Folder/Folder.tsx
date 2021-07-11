@@ -19,6 +19,7 @@ export const Folder: React.FC = ({ children }) => {
       {/* on focus the z index needs to plus 1 */}
       {/* on blur the z index needs to minus 1 */}
       <div
+        // to do: manage editable content
         contentEditable
         onFocus={onFocus}
         onBlur={onBlur}

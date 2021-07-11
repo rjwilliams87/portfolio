@@ -32,12 +32,12 @@ interface IGenericFolderAction extends IDispatchAction {
 }
 
 interface IBaseFolderAction extends IGenericFolderAction {
-  type: 'hide' | 'show';
+  type: 'close' | 'hide' | 'show';
   value: { id: string };
 }
 
 interface IOpenFolderAction extends IGenericFolderAction {
-  type: 'open' | 'close';
+  type: 'open';
   value: IBaseFolder;
 }
 
@@ -101,7 +101,7 @@ const openFolder = (
 const closeDocument = (
   state: TFoldersState,
   action: IBaseFolderAction,
-): TFoldersState => state.filter((document) => document.id === action.value.id);
+): TFoldersState => state.filter((document) => document.id !== action.value.id);
 
 const showFolder = (
   state: TFoldersState,

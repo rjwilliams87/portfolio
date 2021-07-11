@@ -1,38 +1,55 @@
-import { useState } from 'react';
+import React from 'react';
 
-import Draggable from 'react-draggable';
+import {
+  IBaseFolder,
+  useFolderDispatch,
+  useFoldersState,
+} from '../../context/folders';
+import { Folder } from '../Folder';
 
-import { IBaseFolder } from '../../context/folders';
+const FOLDER_ID = 'games';
+const FOLDER_NAME = 'Games';
+const FOLDER_TYPE = 'folder';
+
+/**
+ *
+ * TO DO:
+ *   show folder if open and user double clicks shortcut
+ */
+
+const GamesFolderComponent: React.FC = () => {
+  const dispatch = useFolderDispatch();
+  const state = useFoldersState();
+
+  const folder = state.find((folder) => folder.id === FOLDER_ID);
+  console.log('FOLDER = ', folder);
+  const closeFolder = (e) => {
+    e.preventDefault();
+    dispatch({ type: 'close', value: { id: FOLDER_ID } });
+  };
+
+  const hideFolder = (e) => {
+    e.preventDefault();
+    dispatch({ type: 'hide', value: { id: FOLDER_ID } });
+  };
+
+  console.log('STATE = ', state);
+
+  if (!folder) return;
+
+  return (
+    folder.active && (
+      <Folder>
+        <button onClick={closeFolder}>X</button>
+        <button onClick={hideFolder}>hide</button>
+      </Folder>
+    )
+  );
+};
 
 export const GamesFolder: IBaseFolder = {
-  id: 'games',
-  name: 'Games',
-  type: 'folder',
-  component: () => {
-    const [zIndex, setZIndex] = useState<number>(10);
-
-    const onFocus = () => setZIndex(10);
-    const onBlur = () => setZIndex(0);
-
-    return (
-      <Draggable>
-        {/* on focus the z index needs to plus 1 */}
-        {/* on blur the z index needs to minus 1 */}
-        <div
-          contentEditable
-          onFocus={onFocus}
-          onBlur={onBlur}
-          style={{
-            width: '500px',
-            height: '500px',
-            border: '1px solid lightblue',
-            position: 'absolute',
-            background: 'lightblue',
-            cursor: 'pointer',
-            zIndex,
-          }}
-        />
-      </Draggable>
-    );
-  },
+  id: FOLDER_ID,
+  name: FOLDER_NAME,
+  type: FOLDER_TYPE,
+  component: GamesFolderComponent,
 };

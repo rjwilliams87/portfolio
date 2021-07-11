@@ -1,9 +1,6 @@
 import React from 'react';
 
-import {
-  // useFolderDispatch,
-  useFoldersState,
-} from '../../context/folders';
+import { useFolderDispatch, useFoldersState } from '../../context/folders';
 import { useMenuDispatch, useMenuState } from '../../context/menu';
 import { Menu } from '../Menu';
 
@@ -42,15 +39,30 @@ const container3 = {
   alignItems: 'center',
 };
 
-const folder = {
+const folderStyle = {
   width: '200px',
   height: '90%',
   border: '1px solid black',
   margin: '0 1px',
 };
 
-const DockTab = () => {
-  return <div style={folder}></div>;
+const DockTab = ({ id, name }: { id: string; name: string }) => {
+  const dispatch = useFolderDispatch();
+  const state = useFoldersState();
+
+  const folder = state.find((folder) => folder.id === id);
+
+  const show = () => {
+    if (!folder) return;
+    else if (folder.active) return;
+    else dispatch({ type: 'show', value: { id } });
+  };
+
+  return (
+    <button onClick={show} style={folderStyle}>
+      {name}
+    </button>
+  );
 };
 
 /**
@@ -60,6 +72,7 @@ const DockTab = () => {
  * - remove document on tab exit/close/etc
  * - live time
  * - button styles
+ * - standardize name (folders vs documents)
  */
 const Dock = () => {
   const documents = useFoldersState();
@@ -90,7 +103,11 @@ const Dock = () => {
         </div>
         <div style={container2}>
           {documents.map((document) => (
-            <DockTab key={`shortcut-${document.id}`} />
+            <DockTab
+              id={document.id}
+              key={`shortcut-${document.id}`}
+              name={document.name}
+            />
           ))}
         </div>
         <div style={container3}>
