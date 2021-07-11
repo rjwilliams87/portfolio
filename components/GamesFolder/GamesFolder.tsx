@@ -2,7 +2,7 @@ import React from 'react';
 
 import {
   IBaseFolder,
-  useFolderDispatch,
+  // useFolderDispatch,
   useFoldersState,
 } from '../../context/folders';
 import { Folder } from '../Folder';
@@ -18,20 +18,20 @@ const FOLDER_TYPE = 'folder';
  */
 
 const GamesFolderComponent: React.FC = () => {
-  const dispatch = useFolderDispatch();
+  // const dispatch = useFolderDispatch();
   const state = useFoldersState();
 
   const folder = state.find((folder) => folder.id === FOLDER_ID);
   console.log('FOLDER = ', folder);
-  const closeFolder = (e) => {
-    e.preventDefault();
-    dispatch({ type: 'close', value: { id: FOLDER_ID } });
-  };
+  // const closeFolder = (e) => {
+  //   e.preventDefault();
+  //   dispatch({ type: 'close', value: { id: FOLDER_ID } });
+  // };
 
-  const hideFolder = (e) => {
-    e.preventDefault();
-    dispatch({ type: 'hide', value: { id: FOLDER_ID } });
-  };
+  // const hideFolder = (e) => {
+  //   e.preventDefault();
+  //   dispatch({ type: 'hide', value: { id: FOLDER_ID } });
+  // };
 
   console.log('STATE = ', state);
 
@@ -39,9 +39,12 @@ const GamesFolderComponent: React.FC = () => {
 
   return (
     folder.active && (
-      <Folder>
-        <button onClick={closeFolder}>X</button>
-        <button onClick={hideFolder}>hide</button>
+      <Folder folderId={FOLDER_ID}>
+        <div
+          style={{ width: '100px', height: '100px', border: '1px solid black' }}
+        >
+          sub folder
+        </div>
       </Folder>
     )
   );
