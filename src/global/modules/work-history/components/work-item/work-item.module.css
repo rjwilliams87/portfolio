@@ -1,0 +1,5 @@
+.bullet::before {
+  content: "•"; /* Unicode character for bullet */
+  display: inline-block;
+  margin: 0 10px; /* Adjust spacing around the bullet */
+}

@@ -1,0 +1,58 @@
+.container-base {
+  @apply w-full flex h-auto px-4 md:px-0 md:container mx-auto;
+}
+
+.container-large {
+  @apply h-screen;
+}
+
+.container-flex-row {
+  @apply flex-row justify-between items-end gap-16;
+}
+
+.container-flex-col {
+  @apply flex-col gap-8;
+}
+
+.text-base {
+}
+
+.text-flex-row {
+  @apply w-2/3;
+}
+
+.text-flex-col {
+  @apply w-2/3 py-4;
+}
+
+.text-first {
+  @apply order-first;
+}
+
+.text-last {
+  @apply order-last;
+}
+
+.image-base {
+  @apply relative;
+}
+
+.image-flex-row {
+  @apply w-2/5 h-2/3;
+}
+
+.image-flex-col {
+  @apply w-full h-1/2;
+}
+
+.image-first {
+  @apply order-first;
+}
+
+.image-last {
+  @apply order-last;
+}
+
+.image-small {
+  @apply block min-h-[350px] max-w-[500px];
+}
