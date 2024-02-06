@@ -6,6 +6,7 @@ import { documentToReactComponents, type Options } from "@contentful/rich-text-r
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 
 import { HeaderEntry } from "@/data/schema";
+import { RotatingCTA } from "@/global/components";
 
 import s from "./page-header.module.css";
 
@@ -51,13 +52,16 @@ export function PageHeader(props: HeaderEntry) {
   });
 
   return (
-    <div className={containerStyles}>
-      <div className={textStyles}>{documentToReactComponents(text.json, OPTIONS)}</div>
-      {image && (
-        <div className={imageStyles}>
-          <Image src={image.url} alt={image.description || ""} objectFit="cover" layout="fill" />
-        </div>
-      )}
-    </div>
+    <>
+      <div className={containerStyles}>
+        <div className={textStyles}>{documentToReactComponents(text.json, OPTIONS)}</div>
+        {image && (
+          <div className={imageStyles}>
+            <Image src={image.url} alt={image.description || ""} objectFit="cover" layout="fill" />
+          </div>
+        )}
+      </div>
+      <RotatingCTA text="CLICK HERE • LET'S WORK TOGETHER • " />
+    </>
   );
 }
