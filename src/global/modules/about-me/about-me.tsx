@@ -37,7 +37,9 @@ export function AboutMe(props: AboutMeEntry) {
   return (
     <div className="page-section">
       <div className="site-content-container">
-        <h2 className="page-header">ABOUT ME</h2>
+        <h2 className="page-header" id="about">
+          ABOUT ME
+        </h2>
         <div>{documentToReactComponents(description.json, { ...renderOptions(description) })}</div>
       </div>
     </div>

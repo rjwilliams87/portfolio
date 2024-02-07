@@ -1,32 +1,23 @@
 .circle {
+  width: 150px;
+  height: 150px;
+  left: 10%;
+  bottom: 50vh;
   position: relative;
-  width: 250px;
-  height: 250px;
-  /* background: #c5c5c5; */
-  left: 55%;
-  bottom: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  animation: rotate 20s linear infinite;
+  background-color: #ff5151;
+  /* animation: rotate 20s linear infinite;
   transition: background-color 0.5s;
-  cursor: pointer;
+  cursor: pointer; */
 }
 
-.circle:hover {
+/* .circle:hover {
   background-color: #ff5151;
   animation-play-state: paused;
-}
-
-.logo {
-  position: absolute;
-  width: 250px;
-  height: 250px;
-  /* background: #fff; */
-  opacity: 0;
-  border-radius: 50%;
-}
+} */
 
 .text {
   position: absolute;
@@ -35,34 +26,62 @@
 }
 
 .letter {
+  font-size: 1rem;
   position: absolute;
   left: 50%;
-  font-size: 1.25rem;
-  transform-origin: 0 125px;
   color: #ff5151;
   font-weight: 700;
   transition: color 0.5s;
+  transform-origin: 0 75px;
 }
 
 .circle:hover .letter {
   color: white;
-  /* animation: flash 1.25s ease-in infinite; */
 }
 
-@keyframes rotate {
+@media screen and (min-width: 768px) {
+  .circle {
+    width: 200px;
+    height: 200px;
+    /* left: 10%; */
+    bottom: 60vh;
+  }
+
+  .circle:hover {
+  }
+
+  .letter {
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .circle {
+    width: 250px;
+    height: 250px;
+    left: 55%;
+    bottom: 80vh;
+    /* animation: rotate 20s linear infinite;
+    transition: background-color 0.5s;
+    cursor: pointer;
+    background-color: transparent; */
+  }
+
+  /* .circle:hover {
+    background-color: #ff5151;
+    animation-play-state: paused;
+  } */
+
+  .letter {
+    font-size: 1.25rem;
+    transform-origin: 0 125px;
+  }
+}
+
+/* @keyframes rotate {
   from {
-    transform: otate(0deg);
+    transform: rotate(0deg);
   }
   to {
     transform: rotate(-360deg);
-  }
-}
-
-/* @keyframes flash {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
   }
 } */

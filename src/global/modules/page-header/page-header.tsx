@@ -1,5 +1,3 @@
-"use-client"; // TO DO: remove
-
 import { clsx } from "clsx";
 import Image from "next/image";
 import { documentToReactComponents, type Options } from "@contentful/rich-text-react-renderer";
@@ -12,13 +10,15 @@ import s from "./page-header.module.css";
 
 const OPTIONS: Options = {
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (_, children) => <p className="text-2xl font-semibold">{children}</p>,
+    [BLOCKS.PARAGRAPH]: (_, children) => (
+      <p className="text-xl lg:text-2xl uppercase">{children}</p>
+    ),
     [BLOCKS.HEADING_1]: (_, children) => (
-      <p style={{ lineHeight: "95%" }} className="text-9xl font-bold">
+      <p style={{ lineHeight: "95%" }} className="text-7xl lg:text-9xl font-semibold">
         {children}
       </p>
     ),
-    [BLOCKS.HEADING_2]: (_, children) => <p className="text-6xl font-bold">{children}</p>,
+    [BLOCKS.HEADING_2]: (_, children) => <p className="text-3xl lg:text-5xl">{children}</p>,
     [INLINES.HYPERLINK]: (node, children) => (
       <a href={node.data.uri} className="underline text-brand-green hover:text-brand-green-dark">
         {children}

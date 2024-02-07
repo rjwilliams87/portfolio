@@ -27,12 +27,9 @@ const ComponentMap = {
 };
 
 export function renderComponent(data: PageModules, index: number) {
-  // const { __typename, ...props } = data;
-  // const Component = require(`./${__typename}`).default;
-  // return <Component key={index} {...props} />;
-  const Component = ComponentMap[data.__typename];
+  const Component = ComponentMap[data.__typename] as React.FC<PageModules> | undefined;
   if (!Component || !data) return null;
-  return <Component key={index} {...data} />;
+  return <Component {...data} />;
 }
 
 export default function DynamicComponent({ page }: DynamicComponentProps) {
