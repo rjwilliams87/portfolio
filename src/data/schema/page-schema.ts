@@ -3,6 +3,7 @@ import { z } from "zod";
 import { aboutMeSchema } from "./about-schema";
 import { headerSchema } from "./header-schema";
 import { projectsSchema } from "./projects-schema";
+import { servicesModuleSchema } from "./services-schema";
 import { workHistorySchema } from "./work-history-schema";
 
 export const pageSchema = z.object({
@@ -10,7 +11,13 @@ export const pageSchema = z.object({
   modulesCollection: z.object({
     __typename: z.literal("PageModulesCollection"),
     items: z.array(
-      z.union([aboutMeSchema, headerSchema, projectsSchema, workHistorySchema]),
+      z.union([
+        aboutMeSchema,
+        headerSchema,
+        projectsSchema,
+        servicesModuleSchema,
+        workHistorySchema,
+      ]),
     ),
   }),
   slug: z.string(),

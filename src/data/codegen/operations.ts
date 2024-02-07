@@ -8,6 +8,8 @@ export type ModulePageHeaderFragment = { __typename: 'ModulePageHeader', size: s
 
 export type ModuleProjectsFragment = { __typename?: 'ModuleProjects', componentsCollection: { __typename?: 'ModuleProjectsComponentsCollection', items: Array<{ __typename: 'ComponentProject', title: string | null, description: { __typename?: 'ComponentProjectDescription', json: any } | null, image: { __typename?: 'Asset', title: string | null, description: string | null, contentType: string | null, url: string | null, width: number | null, height: number | null } | null } | null> } | null };
 
+export type ModuleServicesFragment = { __typename?: 'ModuleServices', componentsCollection: { __typename?: 'ModuleServicesComponentsCollection', items: Array<{ __typename: 'ComponentService', title: string | null, description: { __typename?: 'ComponentServiceDescription', json: any } | null } | null> } | null };
+
 export type ModuleWorkHistoryFragment = { __typename?: 'ModuleWorkHistory', componentsCollection: { __typename?: 'ModuleWorkHistoryComponentsCollection', items: Array<{ __typename: 'ComponentWorkHistoryItem', companyName: string | null, skills: Array<string | null> | null, startDate: any | null, endDate: any | null, title: string | null, description: { __typename?: 'ComponentWorkHistoryItemDescription', json: any } | null } | null> } | null };
 
 export type AllPagesQueryVariables = Types.Exact<{ [key: string]: never; }>;
@@ -18,14 +20,14 @@ export type AllPagesQuery = { __typename?: 'Query', pageCollection: { __typename
 export type LandingPageQueryVariables = Types.Exact<{ [key: string]: never; }>;
 
 
-export type LandingPageQuery = { __typename?: 'Query', pageCollection: { __typename?: 'PageCollection', items: Array<{ __typename?: 'Page', slug: string | null, sys: { __typename?: 'Sys', id: string }, modulesCollection: { __typename?: 'PageModulesCollection', items: Array<{ __typename: 'ModuleAboutMe', email: string | null, roles: Array<string | null> | null, phone: string | null, description: { __typename?: 'ModuleAboutMeDescription', json: any, links: { __typename?: 'ModuleAboutMeDescriptionLinks', assets: { __typename?: 'ModuleAboutMeDescriptionAssets', block: Array<{ __typename?: 'Asset', title: string | null, description: string | null, contentType: string | null, url: string | null, width: number | null, height: number | null, sys: { __typename?: 'Sys', id: string } } | null> } } } | null } | { __typename: 'ModulePageHeader', size: string | null, layout: string | null, text: { __typename?: 'ModulePageHeaderText', json: any } | null, image: { __typename?: 'Asset', title: string | null, description: string | null, contentType: string | null, url: string | null, width: number | null, height: number | null } | null } | { __typename: 'ModuleProjects', componentsCollection: { __typename?: 'ModuleProjectsComponentsCollection', items: Array<{ __typename: 'ComponentProject', title: string | null, description: { __typename?: 'ComponentProjectDescription', json: any } | null, image: { __typename?: 'Asset', title: string | null, description: string | null, contentType: string | null, url: string | null, width: number | null, height: number | null } | null } | null> } | null } | { __typename: 'ModuleWorkHistory', componentsCollection: { __typename?: 'ModuleWorkHistoryComponentsCollection', items: Array<{ __typename: 'ComponentWorkHistoryItem', companyName: string | null, skills: Array<string | null> | null, startDate: any | null, endDate: any | null, title: string | null, description: { __typename?: 'ComponentWorkHistoryItemDescription', json: any } | null } | null> } | null } | null> } | null } | null> } | null };
+export type LandingPageQuery = { __typename?: 'Query', pageCollection: { __typename?: 'PageCollection', items: Array<{ __typename?: 'Page', slug: string | null, sys: { __typename?: 'Sys', id: string }, modulesCollection: { __typename?: 'PageModulesCollection', items: Array<{ __typename: 'ModuleAboutMe', email: string | null, roles: Array<string | null> | null, phone: string | null, description: { __typename?: 'ModuleAboutMeDescription', json: any, links: { __typename?: 'ModuleAboutMeDescriptionLinks', assets: { __typename?: 'ModuleAboutMeDescriptionAssets', block: Array<{ __typename?: 'Asset', title: string | null, description: string | null, contentType: string | null, url: string | null, width: number | null, height: number | null, sys: { __typename?: 'Sys', id: string } } | null> } } } | null } | { __typename: 'ModulePageHeader', size: string | null, layout: string | null, text: { __typename?: 'ModulePageHeaderText', json: any } | null, image: { __typename?: 'Asset', title: string | null, description: string | null, contentType: string | null, url: string | null, width: number | null, height: number | null } | null } | { __typename: 'ModuleProjects', componentsCollection: { __typename?: 'ModuleProjectsComponentsCollection', items: Array<{ __typename: 'ComponentProject', title: string | null, description: { __typename?: 'ComponentProjectDescription', json: any } | null, image: { __typename?: 'Asset', title: string | null, description: string | null, contentType: string | null, url: string | null, width: number | null, height: number | null } | null } | null> } | null } | { __typename: 'ModuleServices', componentsCollection: { __typename?: 'ModuleServicesComponentsCollection', items: Array<{ __typename: 'ComponentService', title: string | null, description: { __typename?: 'ComponentServiceDescription', json: any } | null } | null> } | null } | { __typename: 'ModuleWorkHistory', componentsCollection: { __typename?: 'ModuleWorkHistoryComponentsCollection', items: Array<{ __typename: 'ComponentWorkHistoryItem', companyName: string | null, skills: Array<string | null> | null, startDate: any | null, endDate: any | null, title: string | null, description: { __typename?: 'ComponentWorkHistoryItemDescription', json: any } | null } | null> } | null } | null> } | null } | null> } | null };
 
 export type PageByIdQueryVariables = Types.Exact<{
   id: Types.Scalars['String']['input'];
 }>;
 
 
-export type PageByIdQuery = { __typename?: 'Query', page: { __typename?: 'Page', slug: string | null, sys: { __typename?: 'Sys', id: string }, modulesCollection: { __typename?: 'PageModulesCollection', items: Array<{ __typename: 'ModuleAboutMe', email: string | null, roles: Array<string | null> | null, phone: string | null, description: { __typename?: 'ModuleAboutMeDescription', json: any, links: { __typename?: 'ModuleAboutMeDescriptionLinks', assets: { __typename?: 'ModuleAboutMeDescriptionAssets', block: Array<{ __typename?: 'Asset', title: string | null, description: string | null, contentType: string | null, url: string | null, width: number | null, height: number | null, sys: { __typename?: 'Sys', id: string } } | null> } } } | null } | { __typename: 'ModulePageHeader', size: string | null, layout: string | null, text: { __typename?: 'ModulePageHeaderText', json: any } | null, image: { __typename?: 'Asset', title: string | null, description: string | null, contentType: string | null, url: string | null, width: number | null, height: number | null } | null } | { __typename: 'ModuleProjects', componentsCollection: { __typename?: 'ModuleProjectsComponentsCollection', items: Array<{ __typename: 'ComponentProject', title: string | null, description: { __typename?: 'ComponentProjectDescription', json: any } | null, image: { __typename?: 'Asset', title: string | null, description: string | null, contentType: string | null, url: string | null, width: number | null, height: number | null } | null } | null> } | null } | { __typename: 'ModuleWorkHistory', componentsCollection: { __typename?: 'ModuleWorkHistoryComponentsCollection', items: Array<{ __typename: 'ComponentWorkHistoryItem', companyName: string | null, skills: Array<string | null> | null, startDate: any | null, endDate: any | null, title: string | null, description: { __typename?: 'ComponentWorkHistoryItemDescription', json: any } | null } | null> } | null } | null> } | null } | null };
+export type PageByIdQuery = { __typename?: 'Query', page: { __typename?: 'Page', slug: string | null, sys: { __typename?: 'Sys', id: string }, modulesCollection: { __typename?: 'PageModulesCollection', items: Array<{ __typename: 'ModuleAboutMe', email: string | null, roles: Array<string | null> | null, phone: string | null, description: { __typename?: 'ModuleAboutMeDescription', json: any, links: { __typename?: 'ModuleAboutMeDescriptionLinks', assets: { __typename?: 'ModuleAboutMeDescriptionAssets', block: Array<{ __typename?: 'Asset', title: string | null, description: string | null, contentType: string | null, url: string | null, width: number | null, height: number | null, sys: { __typename?: 'Sys', id: string } } | null> } } } | null } | { __typename: 'ModulePageHeader', size: string | null, layout: string | null, text: { __typename?: 'ModulePageHeaderText', json: any } | null, image: { __typename?: 'Asset', title: string | null, description: string | null, contentType: string | null, url: string | null, width: number | null, height: number | null } | null } | { __typename: 'ModuleProjects', componentsCollection: { __typename?: 'ModuleProjectsComponentsCollection', items: Array<{ __typename: 'ComponentProject', title: string | null, description: { __typename?: 'ComponentProjectDescription', json: any } | null, image: { __typename?: 'Asset', title: string | null, description: string | null, contentType: string | null, url: string | null, width: number | null, height: number | null } | null } | null> } | null } | { __typename: 'ModuleServices', componentsCollection: { __typename?: 'ModuleServicesComponentsCollection', items: Array<{ __typename: 'ComponentService', title: string | null, description: { __typename?: 'ComponentServiceDescription', json: any } | null } | null> } | null } | { __typename: 'ModuleWorkHistory', componentsCollection: { __typename?: 'ModuleWorkHistoryComponentsCollection', items: Array<{ __typename: 'ComponentWorkHistoryItem', companyName: string | null, skills: Array<string | null> | null, startDate: any | null, endDate: any | null, title: string | null, description: { __typename?: 'ComponentWorkHistoryItemDescription', json: any } | null } | null> } | null } | null> } | null } | null };
 
 export const ModuleAboutMeFragmentDoc = gql`
     fragment ModuleAboutMe on ModuleAboutMe {
@@ -92,6 +94,19 @@ export const ModuleProjectsFragmentDoc = gql`
   }
 }
     `;
+export const ModuleServicesFragmentDoc = gql`
+    fragment ModuleServices on ModuleServices {
+  componentsCollection {
+    items {
+      title
+      description {
+        json
+      }
+      __typename
+    }
+  }
+}
+    `;
 export const ModuleWorkHistoryFragmentDoc = gql`
     fragment ModuleWorkHistory on ModuleWorkHistory {
   componentsCollection {
@@ -141,6 +156,9 @@ export const LandingPageDocument = gql`
           ... on ModuleProjects {
             ...ModuleProjects
           }
+          ... on ModuleServices {
+            ...ModuleServices
+          }
           ... on ModuleWorkHistory {
             ...ModuleWorkHistory
           }
@@ -152,6 +170,7 @@ export const LandingPageDocument = gql`
     ${ModuleAboutMeFragmentDoc}
 ${ModulePageHeaderFragmentDoc}
 ${ModuleProjectsFragmentDoc}
+${ModuleServicesFragmentDoc}
 ${ModuleWorkHistoryFragmentDoc}`;
 export const PageByIdDocument = gql`
     query PageByID($id: String!) {
@@ -172,6 +191,9 @@ export const PageByIdDocument = gql`
         ... on ModuleProjects {
           ...ModuleProjects
         }
+        ... on ModuleServices {
+          ...ModuleServices
+        }
         ... on ModuleWorkHistory {
           ...ModuleWorkHistory
         }
@@ -182,4 +204,5 @@ export const PageByIdDocument = gql`
     ${ModuleAboutMeFragmentDoc}
 ${ModulePageHeaderFragmentDoc}
 ${ModuleProjectsFragmentDoc}
+${ModuleServicesFragmentDoc}
 ${ModuleWorkHistoryFragmentDoc}`;

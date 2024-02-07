@@ -60,6 +60,18 @@ fragment ModuleProjects on ModuleProjects {
   }
 }
 
+fragment ModuleServices on ModuleServices {
+  componentsCollection {
+    items {
+      title
+      description {
+        json
+      }
+      __typename
+    }
+  }
+}
+
 fragment ModuleWorkHistory on ModuleWorkHistory {
   componentsCollection {
     items {
@@ -111,6 +123,10 @@ query LandingPage {
             ...ModuleProjects
           }
 
+          ... on ModuleServices {
+            ...ModuleServices
+          }
+
           ... on ModuleWorkHistory {
             ...ModuleWorkHistory
           }
@@ -141,6 +157,10 @@ query PageByID($id: String!) {
 
         ... on ModuleProjects {
           ...ModuleProjects
+        }
+
+        ... on ModuleServices {
+          ...ModuleServices
         }
 
         ... on ModuleWorkHistory {

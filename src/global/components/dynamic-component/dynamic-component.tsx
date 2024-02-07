@@ -5,15 +5,22 @@ import {
   AboutMeEntry,
   HeaderEntry,
   ProjectsEntry,
+  ServicesModuleEntry,
   WorkHistoryEntry,
   ABOUT_ME_TYPENAME,
   HEADER_TYPENAME,
   PROJECTS_TYPENAME,
+  SERVICES_MODULE_TYPENAME,
   WORK_HISTORY_TYPENAME,
 } from "@/data/schema";
-import { AboutMe, PageHeader, Projects, WorkHistory } from "@/global/modules";
+import { AboutMe, PageHeader, Projects, Services, WorkHistory } from "@/global/modules";
 
-type PageModules = AboutMeEntry | HeaderEntry | ProjectsEntry | WorkHistoryEntry;
+type PageModules =
+  | AboutMeEntry
+  | HeaderEntry
+  | ProjectsEntry
+  | ServicesModuleEntry
+  | WorkHistoryEntry;
 
 type DynamicComponentProps = {
   page: PageEntry;
@@ -23,6 +30,7 @@ const ComponentMap = {
   [ABOUT_ME_TYPENAME]: AboutMe,
   [HEADER_TYPENAME]: PageHeader,
   [PROJECTS_TYPENAME]: Projects,
+  [SERVICES_MODULE_TYPENAME]: Services,
   [WORK_HISTORY_TYPENAME]: WorkHistory,
 };
 

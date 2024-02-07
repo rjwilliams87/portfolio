@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .page-section {
-  @apply my-12 py-14;
+  @apply my-0 py-14;
 }
 
 .page-header {
