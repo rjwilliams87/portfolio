@@ -1,5 +1,5 @@
 .root {
-  @apply lg:flex justify-between gap-4 lg:gap-20 xl:gap-40 py-12;
+  @apply lg:flex justify-between gap-4 lg:gap-0 py-0 hover:bg-accent-1;
 }
 
 .reverse {
@@ -7,15 +7,15 @@
 }
 
 .project-image {
-  @apply h-[500px] w-full lg:w-3/5 relative;
+  @apply h-[400px] w-full lg:w-1/2 relative;
 }
 
 .project-details {
-  @apply w-full lg:w-2/5 pt-4 lg:pt-16;
+  @apply w-full lg:w-1/2 pt-4 lg:pt-0 lg:flex flex-col justify-between;
 }
 
 .title {
-  @apply text-2xl lg:text-5xl lg:pb-6 font-bold text-brand-red;
+  @apply text-2xl lg:text-7xl uppercase;
 }
 
 .title-left {

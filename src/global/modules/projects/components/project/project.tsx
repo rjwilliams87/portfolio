@@ -20,8 +20,11 @@ export function Project(props: ProjectItemEntry & { index?: number }) {
     [s.reverse]: index % 2 !== 0,
   });
   const titleStyles = clsx(s.title, {
-    [s["title-left"]]: index % 2 === 0,
-    [s["title-right"]]: index % 2 !== 0,
+    [s["title-left"]]: index % 2 !== 0,
+    [s["title-right"]]: index % 2 === 0,
+  });
+  const tContainerStyles = clsx("w-full flex justify-between items-center px-4", {
+    "flex-row-reverse": index % 2 !== 0,
   });
 
   return (
@@ -30,8 +33,14 @@ export function Project(props: ProjectItemEntry & { index?: number }) {
         <Image src={image.url} alt={image.description || ""} objectFit="cover" layout="fill" />
       </div>
       <div className={clsx(s["project-details"])}>
-        <div className={titleStyles}>{title}</div>
-        <div className="py-2">{documentToReactComponents(description.json, OPTIONS)}</div>
+        <div className="p-4 text-3xl w-full flex justify-between">
+          <div>©2022</div>
+          <div>REACT | NEXT | NODE</div>
+        </div>
+        <div className={tContainerStyles}>
+          <div className={titleStyles}>{title}</div>
+          <div className="text-7xl">.</div>
+        </div>
       </div>
     </div>
   );

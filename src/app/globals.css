@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  background-color: #fffdf8;
+}
+
 .page-section {
-  @apply my-0 py-14;
+  @apply my-0 py-10 lg:py-14 xl:py-20;
 }
 
 .page-header {

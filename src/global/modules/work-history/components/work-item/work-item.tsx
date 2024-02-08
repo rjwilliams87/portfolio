@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 
 import { WorkHistoryItemEntry } from "@/data/schema";
 import { Pill } from "@/global/components";
+import { cn } from "@/lib/utils";
 
 import s from "./work-item.module.css";
 
@@ -33,28 +34,42 @@ export function WorkItem(props: WorkHistoryItemEntry) {
 
   const minimalSkills = skills.slice(0, MAX_SM_SCREEN_SKILLS).filter(Boolean);
 
+  const styles = cn("py-2 absolute text-brand-background", {
+    hidden: companyName !== "Cyderes",
+  });
   return (
-    <div
-      key={companyName}
-      className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-2 md:gap-4 lg:gap-20 xl:gap-40 py-8"
-    >
-      <div>
-        <div className="text-4xl py-2">{companyName}</div>
-        <WorkDetails date={startDate} title={title} />
+    <>
+      <div className={styles}>{documentToReactComponents(description.json, OPTIONS)}</div>
+      <div className="lg:py-6 flex w-full justify-end">
+        <button className="text-brand-background text-8xl hover:text-brand-background-dark uppercase">
+          {companyName}
+        </button>
       </div>
-      <div>
-        <div className="py-2">{documentToReactComponents(description.json, OPTIONS)}</div>
-        <div className="sm:hidden flex flex-wrap gap-4 py-4">
-          {minimalSkills.map((skill) => (
-            <Pill key={skill}>{skill}</Pill>
-          ))}
-        </div>
-        <div className="hidden sm:flex flex-wrap gap-4 py-4 lg:py-0">
-          {skills.map((skill, index) => (
-            <Pill key={`${skill}-${index}`}>{skill}</Pill>
-          ))}
-        </div>
-      </div>
-    </div>
+    </>
   );
+
+  // return (
+  //   <div
+  //     key={companyName}
+  //     className="flex flex-col lg:flex-row lg:justify-between lg:items-center gap-2 md:gap-4 lg:gap-20 xl:gap-40 py-8"
+  //   >
+  //     <div>
+  //       <div className="text-4xl py-2">{companyName}</div>
+  //       <WorkDetails date={startDate} title={title} />
+  //     </div>
+  //     <div>
+  //       <div className="py-2">{documentToReactComponents(description.json, OPTIONS)}</div>
+  //       <div className="sm:hidden flex flex-wrap gap-4 py-4">
+  //         {minimalSkills.map((skill) => (
+  //           <Pill key={skill}>{skill}</Pill>
+  //         ))}
+  //       </div>
+  //       <div className="hidden sm:flex flex-wrap gap-4 py-4 lg:py-0">
+  //         {skills.map((skill, index) => (
+  //           <Pill key={`${skill}-${index}`}>{skill}</Pill>
+  //         ))}
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 }

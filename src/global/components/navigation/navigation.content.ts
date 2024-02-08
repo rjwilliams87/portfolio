@@ -1,15 +1,15 @@
 export const NAVIGATION_ITEMS = [
   {
-    href: "#work",
-    label: "WORK",
+    href: "#services",
+    label: "SERVICES",
   },
   {
     href: "#projects",
     label: "PROJECTS",
   },
   {
-    href: "#services",
-    label: "SERVICES",
+    href: "#work",
+    label: "WORK",
   },
   {
     href: "#about",
