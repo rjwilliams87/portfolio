@@ -14,7 +14,7 @@ export function Services(props: ServicesModuleEntry) {
         </h2>
         <Accordion type="single" collapsible>
           {componentsCollection.items.map((props, index) => (
-            <Service {...props} index={index} />
+            <Service key={`accordion-${index}`} {...props} index={index} />
           ))}
         </Accordion>
       </div>

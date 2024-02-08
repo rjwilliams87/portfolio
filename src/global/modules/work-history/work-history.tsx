@@ -28,6 +28,7 @@ export function WorkHistory(props: WorkHistoryEntry) {
           <div>
             {componentsCollection.items.map((props, i) => (
               <div
+                key={`work-history-${i}`}
                 className={cn("py-2 absolute w-2/5", {
                   hidden: selected !== i,
                 })}
@@ -38,7 +39,7 @@ export function WorkHistory(props: WorkHistoryEntry) {
           </div>
           <div>
             {componentsCollection.items.map(({ companyName }, i) => (
-              <div className={cn("lg:py-6 flex w-full justify-end")}>
+              <div key={`work-history-btn-${i}`} className={cn("lg:py-6 flex w-full justify-end")}>
                 <button
                   className={cn(
                     "text-brand-background text-8xl hover:text-brand-background-dark uppercase",

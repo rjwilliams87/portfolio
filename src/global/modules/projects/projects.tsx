@@ -12,7 +12,7 @@ export function Projects(props: ProjectsEntry) {
           PROJECTS
         </h2>
         {componentsCollection.items.map((props, index) => (
-          <Project {...props} index={index} />
+          <Project key={`projects-${index}`} {...props} index={index} />
         ))}
       </div>
     </div>
