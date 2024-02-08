@@ -1,12 +1,9 @@
 import { documentToReactComponents, type Options } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
-import Image from "next/image";
 
 import { ServiceItemEntry } from "@/data/schema";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/global/components";
+import { AccordionContent, AccordionItem, AccordionTrigger } from "@/global/components";
 import { cn } from "@/lib/utils";
-
-import s from "./project.module.css";
 
 const OPTIONS: Options = {
   renderNode: {

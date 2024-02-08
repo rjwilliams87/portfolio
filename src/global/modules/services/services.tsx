@@ -1,6 +1,6 @@
 import { ServicesModuleEntry } from "@/data/schema";
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/global/components";
+import { Accordion } from "@/global/components";
 
 import { Service } from "./components";
 
