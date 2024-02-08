@@ -433,12 +433,20 @@ export enum ComponentNavItemOrder {
 /** [See type definition](https://app.contentful.com/spaces/v0ty7qkcy8s7/content_types/componentProject) */
 export type ComponentProject = Entry & {
   __typename?: 'ComponentProject';
+  completionYear: Maybe<Scalars['DateTime']['output']>;
   contentfulMetadata: ContentfulMetadata;
   description: Maybe<ComponentProjectDescription>;
   image: Maybe<Asset>;
   linkedFrom: Maybe<ComponentProjectLinkingCollections>;
   sys: Sys;
   title: Maybe<Scalars['String']['output']>;
+  tools: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/v0ty7qkcy8s7/content_types/componentProject) */
+export type ComponentProjectCompletionYearArgs = {
+  locale: InputMaybe<Scalars['String']['input']>;
 };
 
 
@@ -463,6 +471,12 @@ export type ComponentProjectLinkedFromArgs = {
 
 /** [See type definition](https://app.contentful.com/spaces/v0ty7qkcy8s7/content_types/componentProject) */
 export type ComponentProjectTitleArgs = {
+  locale: InputMaybe<Scalars['String']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/v0ty7qkcy8s7/content_types/componentProject) */
+export type ComponentProjectToolsArgs = {
   locale: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -510,6 +524,15 @@ export type ComponentProjectDescriptionResources = {
 export type ComponentProjectFilter = {
   AND: InputMaybe<Array<InputMaybe<ComponentProjectFilter>>>;
   OR: InputMaybe<Array<InputMaybe<ComponentProjectFilter>>>;
+  completionYear: InputMaybe<Scalars['DateTime']['input']>;
+  completionYear_exists: InputMaybe<Scalars['Boolean']['input']>;
+  completionYear_gt: InputMaybe<Scalars['DateTime']['input']>;
+  completionYear_gte: InputMaybe<Scalars['DateTime']['input']>;
+  completionYear_in: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  completionYear_lt: InputMaybe<Scalars['DateTime']['input']>;
+  completionYear_lte: InputMaybe<Scalars['DateTime']['input']>;
+  completionYear_not: InputMaybe<Scalars['DateTime']['input']>;
+  completionYear_not_in: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   contentfulMetadata: InputMaybe<ContentfulMetadataFilter>;
   description_contains: InputMaybe<Scalars['String']['input']>;
   description_exists: InputMaybe<Scalars['Boolean']['input']>;
@@ -523,6 +546,10 @@ export type ComponentProjectFilter = {
   title_not: InputMaybe<Scalars['String']['input']>;
   title_not_contains: InputMaybe<Scalars['String']['input']>;
   title_not_in: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tools_contains_all: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tools_contains_none: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tools_contains_some: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tools_exists: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type ComponentProjectLinkingCollections = {
@@ -562,6 +589,8 @@ export enum ComponentProjectLinkingCollectionsModuleProjectsCollectionOrder {
 }
 
 export enum ComponentProjectOrder {
+  CompletionYearAsc = 'completionYear_ASC',
+  CompletionYearDesc = 'completionYear_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -1573,6 +1602,8 @@ export type ModuleProjectsComponentsCollection = {
 };
 
 export enum ModuleProjectsComponentsCollectionOrder {
+  CompletionYearAsc = 'completionYear_ASC',
+  CompletionYearDesc = 'completionYear_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -2395,6 +2426,15 @@ export type CfComponentNavItemNestedFilter = {
 export type CfComponentProjectNestedFilter = {
   AND: InputMaybe<Array<InputMaybe<CfComponentProjectNestedFilter>>>;
   OR: InputMaybe<Array<InputMaybe<CfComponentProjectNestedFilter>>>;
+  completionYear: InputMaybe<Scalars['DateTime']['input']>;
+  completionYear_exists: InputMaybe<Scalars['Boolean']['input']>;
+  completionYear_gt: InputMaybe<Scalars['DateTime']['input']>;
+  completionYear_gte: InputMaybe<Scalars['DateTime']['input']>;
+  completionYear_in: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
+  completionYear_lt: InputMaybe<Scalars['DateTime']['input']>;
+  completionYear_lte: InputMaybe<Scalars['DateTime']['input']>;
+  completionYear_not: InputMaybe<Scalars['DateTime']['input']>;
+  completionYear_not_in: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   contentfulMetadata: InputMaybe<ContentfulMetadataFilter>;
   description_contains: InputMaybe<Scalars['String']['input']>;
   description_exists: InputMaybe<Scalars['Boolean']['input']>;
@@ -2408,6 +2448,10 @@ export type CfComponentProjectNestedFilter = {
   title_not: InputMaybe<Scalars['String']['input']>;
   title_not_contains: InputMaybe<Scalars['String']['input']>;
   title_not_in: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tools_contains_all: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tools_contains_none: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tools_contains_some: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  tools_exists: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 export type CfComponentServiceNestedFilter = {

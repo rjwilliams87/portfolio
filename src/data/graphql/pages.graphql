@@ -55,6 +55,8 @@ fragment ModuleProjects on ModuleProjects {
         width
         height
       }
+      completionYear
+      tools
       __typename
     }
   }

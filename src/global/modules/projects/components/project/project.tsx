@@ -1,6 +1,7 @@
 import { documentToReactComponents, type Options } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
 import { clsx } from "clsx";
+import dayjs from "dayjs";
 import Image from "next/image";
 
 import { ProjectItemEntry } from "@/data/schema";
@@ -13,8 +14,12 @@ const OPTIONS: Options = {
   },
 };
 
+const formatToolsString = (tools: string[]) => tools.join(" | ");
+
+const Year = ({ date }: { date: string }) => <div>©{dayjs(date).format("YYYY")}</div>;
+
 export function Project(props: ProjectItemEntry & { index?: number }) {
-  const { description, title, image, index = 0 } = props;
+  const { description, completionYear, title, tools, image, index = 0 } = props;
 
   const containerStyles = clsx(s.root, {
     [s.reverse]: index % 2 !== 0,
@@ -34,8 +39,8 @@ export function Project(props: ProjectItemEntry & { index?: number }) {
       </div>
       <div className={clsx(s["project-details"])}>
         <div className="p-4 text-3xl w-full flex justify-between">
-          <div>©2022</div>
-          <div>REACT | NEXT | NODE</div>
+          <Year date={completionYear} />
+          <div>{formatToolsString(tools)}</div>
         </div>
         <div className={tContainerStyles}>
           <div className={titleStyles}>{title}</div>

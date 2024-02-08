@@ -21,9 +21,9 @@ export const RotatingCTA = ({ text }: { text: string }) => {
 
   return (
     <div className={styles.circle}>
-      <div className={styles.text}>
+      {/* <div className={styles.text}>
         <p>{content}</p>
-      </div>
+      </div> */}
     </div>
   );
 };

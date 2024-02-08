@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { clsx } from "clsx";
 
-import { Navigation } from "@/global/components";
+import { Contact, Navigation } from "@/global/components";
 
 import "./globals.css";
 
@@ -26,6 +26,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <Navigation />
         {children}
+        <Contact />
       </body>
     </html>
   );

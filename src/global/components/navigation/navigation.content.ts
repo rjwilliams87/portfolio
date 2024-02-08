@@ -15,8 +15,8 @@ export const NAVIGATION_ITEMS = [
     href: "#about",
     label: "ABOUT",
   },
-  // {
-  //   href: "/blog",
-  //   label: "JOURNAL",
-  // },
+  {
+    href: "#contact",
+    label: "CONNECT",
+  },
 ];

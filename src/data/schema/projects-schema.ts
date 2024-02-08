@@ -15,6 +15,8 @@ export const projectsSchema = z.object({
         description: generateRichTextSchema(),
         image: imageSchema,
         title: z.string(),
+        completionYear: z.string(),
+        tools: z.array(z.string()),
       }),
     ),
   }),
