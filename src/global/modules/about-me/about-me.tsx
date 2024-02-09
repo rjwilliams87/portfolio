@@ -37,11 +37,9 @@ export function AboutMe(props: AboutMeEntry) {
   const { description, email, phone, roles } = props;
 
   return (
-    <div className="page-section">
+    <div className="page-section" id="about">
       <div className="site-content-container">
-        <h2 className="font-bold md:float-start text-2xl md:pr-[30%]" id="about">
-          ABOUT
-        </h2>
+        <h2 className="font-bold md:float-start text-2xl md:pr-[30%]">ABOUT</h2>
         <div>{documentToReactComponents(description.json, { ...renderOptions(description) })}</div>
       </div>
     </div>
