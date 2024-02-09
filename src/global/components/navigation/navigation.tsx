@@ -15,8 +15,10 @@ function Item({ href, label }: { href: string; label: string }) {
 
 export function Navigation({ items = NAVIGATION_ITEMS }) {
   return (
-    <div className="relative flex justify-center md:justify-end md:px-2 lg:px-10">
-      <ul className="py-8 flex flex-row justify-end gap-8 text-xl absolute">{items.map(Item)}</ul>
+    <div className="relative flex justify-end px-4 md:px-2 lg:px-10">
+      <ul className="md:py-8 flex flex-col md:flex-row md:justify-end gap-1 md:gap-8 text-xl absolute">
+        {items.map(Item)}
+      </ul>
     </div>
   );
 }

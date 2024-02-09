@@ -1,15 +1,15 @@
 export const NAVIGATION_ITEMS = [
   {
-    href: "#services",
-    label: "SERVICES",
+    href: "#work",
+    label: "WORK",
   },
   {
     href: "#projects",
     label: "PROJECTS",
   },
   {
-    href: "#work",
-    label: "WORK",
+    href: "#services",
+    label: "SERVICES",
   },
   {
     href: "#about",
@@ -17,6 +17,6 @@ export const NAVIGATION_ITEMS = [
   },
   {
     href: "#contact",
-    label: "CONNECT",
+    label: "CONTACT",
   },
 ];

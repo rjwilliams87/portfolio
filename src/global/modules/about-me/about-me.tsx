@@ -14,7 +14,9 @@ const renderOptions = (richText: any): Options => {
 
   return {
     renderNode: {
-      [BLOCKS.PARAGRAPH]: (_, children) => <p className="text-xl my-4">{children}</p>,
+      [BLOCKS.PARAGRAPH]: (_, children) => (
+        <p className="text-3xl md:text-6xl md:leading-[1.2] my-4">{children}</p>
+      ),
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const asset = assetBlockMap.get(node.data.target.sys.id);
         return (
@@ -37,8 +39,8 @@ export function AboutMe(props: AboutMeEntry) {
   return (
     <div className="page-section">
       <div className="site-content-container">
-        <h2 className="page-header" id="about">
-          ABOUT ME
+        <h2 className="font-bold md:float-start text-2xl md:pr-[30%]" id="about">
+          ABOUT
         </h2>
         <div>{documentToReactComponents(description.json, { ...renderOptions(description) })}</div>
       </div>
