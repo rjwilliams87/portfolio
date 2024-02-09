@@ -1,0 +1,174 @@
+fragment ModuleAboutMe on ModuleAboutMe {
+  description {
+    json
+    links {
+      assets {
+        block {
+          sys {
+            id
+          }
+          title
+          description
+          contentType
+          url
+          width
+          height
+        }
+      }
+    }
+  }
+  email
+  roles
+  phone
+  __typename
+}
+
+fragment ModulePageHeader on ModulePageHeader {
+  text {
+    json
+  }
+  image {
+    title
+    description
+    contentType
+    url
+    width
+    height
+  }
+  size
+  layout
+  __typename
+}
+
+fragment ModuleProjects on ModuleProjects {
+  componentsCollection {
+    items {
+      title
+      description {
+        json
+      }
+      image {
+        title
+        description
+        contentType
+        url
+        width
+        height
+      }
+      completionYear
+      tools
+      __typename
+    }
+  }
+}
+
+fragment ModuleServices on ModuleServices {
+  componentsCollection {
+    items {
+      title
+      description {
+        json
+      }
+      __typename
+    }
+  }
+}
+
+fragment ModuleWorkHistory on ModuleWorkHistory {
+  componentsCollection {
+    items {
+      companyName
+      description {
+        json
+      }
+      skills
+      startDate
+      endDate
+      title
+      __typename
+    }
+  }
+}
+
+query AllPages {
+  pageCollection {
+    items {
+      sys {
+        id
+      }
+      slug
+    }
+  }
+}
+
+query LandingPage {
+  pageCollection(where: { slug: "/" }, limit: 1) {
+    items {
+      slug
+      sys {
+        id
+      }
+
+      modulesCollection(limit: 10) {
+        items {
+          __typename
+
+          ... on ModuleAboutMe {
+            ...ModuleAboutMe
+          }
+
+          ... on ModulePageHeader {
+            ...ModulePageHeader
+          }
+
+          ... on ModuleProjects {
+            ...ModuleProjects
+          }
+
+          ... on ModuleServices {
+            ...ModuleServices
+          }
+
+          ... on ModuleWorkHistory {
+            ...ModuleWorkHistory
+          }
+        }
+      }
+    }
+  }
+}
+
+query PageByID($id: String!) {
+  page(id: $id) {
+    slug
+    sys {
+      id
+    }
+
+    modulesCollection(limit: 10) {
+      items {
+        __typename
+
+        ... on ModuleAboutMe {
+          ...ModuleAboutMe
+        }
+
+        ... on ModulePageHeader {
+          ...ModulePageHeader
+        }
+
+        ... on ModuleProjects {
+          ...ModuleProjects
+        }
+
+        ... on ModuleServices {
+          ...ModuleServices
+        }
+
+        ... on ModuleWorkHistory {
+          ...ModuleWorkHistory
+        }
+      }
+    }
+  }
+}

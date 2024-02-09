@@ -1,0 +1,27 @@
+.root {
+  @apply lg:flex justify-between gap-4 lg:gap-0 py-0 hover:bg-accent-1;
+}
+
+.reverse {
+  @apply lg:flex-row-reverse;
+}
+
+.project-image {
+  @apply h-[400px] w-full lg:w-1/2 relative;
+}
+
+.project-details {
+  @apply w-full lg:w-1/2 pt-4 lg:pt-0 lg:flex flex-col justify-between;
+}
+
+.title {
+  @apply text-2xl lg:text-7xl uppercase;
+}
+
+.title-left {
+  @apply lg:text-left;
+}
+
+.title-right {
+  @apply lg:text-right;
+}

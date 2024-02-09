@@ -1,0 +1,16 @@
+.item {
+  @apply p-2;
+  transition: transform 0.25s;
+}
+
+.item:hover {
+  color: #fff;
+  background-color: #ff5151;
+  cursor: pointer;
+  transform: rotate(-15deg);
+}
+
+.item:active {
+  transform: rotate(15deg);
+  background-color: #ff5151dd;
+}
