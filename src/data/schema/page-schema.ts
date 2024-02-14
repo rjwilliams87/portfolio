@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import { aboutMeSchema } from "./about-schema";
+import { blogSchema } from "./blog-schema";
 import { headerSchema } from "./header-schema";
 import { projectsSchema } from "./projects-schema";
 import { servicesModuleSchema } from "./services-schema";
@@ -13,6 +14,7 @@ export const pageSchema = z.object({
     items: z.array(
       z.union([
         aboutMeSchema,
+        blogSchema,
         headerSchema,
         projectsSchema,
         servicesModuleSchema,

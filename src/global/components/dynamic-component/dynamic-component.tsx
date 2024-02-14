@@ -3,20 +3,23 @@ import React from "react";
 import {
   PageEntry,
   AboutMeEntry,
+  BlogEntry,
   HeaderEntry,
   ProjectsEntry,
   ServicesModuleEntry,
   WorkHistoryEntry,
   ABOUT_ME_TYPENAME,
+  BLOG_TYPENAME,
   HEADER_TYPENAME,
   PROJECTS_TYPENAME,
   SERVICES_MODULE_TYPENAME,
   WORK_HISTORY_TYPENAME,
 } from "@/data/schema";
-import { AboutMe, PageHeader, Projects, Services, WorkHistory } from "@/global/modules";
+import { AboutMe, BlogPost, PageHeader, Projects, Services, WorkHistory } from "@/global/modules";
 
 type PageModules =
   | AboutMeEntry
+  | BlogEntry
   | HeaderEntry
   | ProjectsEntry
   | ServicesModuleEntry
@@ -28,6 +31,7 @@ type DynamicComponentProps = {
 
 const ComponentMap = {
   [ABOUT_ME_TYPENAME]: AboutMe,
+  [BLOG_TYPENAME]: BlogPost,
   [HEADER_TYPENAME]: PageHeader,
   [PROJECTS_TYPENAME]: Projects,
   [SERVICES_MODULE_TYPENAME]: Services,

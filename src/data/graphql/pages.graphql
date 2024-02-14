@@ -23,6 +23,31 @@ fragment ModuleAboutMe on ModuleAboutMe {
   __typename
 }
 
+fragment ModuleBlogPost on ModuleBlogPost {
+  title
+  publishedDate
+  body {
+    json
+    links {
+      assets {
+        block {
+          sys {
+            id
+          }
+          title
+          description
+          contentType
+          url
+          width
+          height
+        }
+      }
+    }
+  }
+  readTime
+  __typename
+}
+
 fragment ModulePageHeader on ModulePageHeader {
   text {
     json
@@ -117,6 +142,51 @@ query LandingPage {
             ...ModuleAboutMe
           }
 
+          ... on ModuleBlogPost {
+            ...ModuleBlogPost
+          }
+
+          ... on ModulePageHeader {
+            ...ModulePageHeader
+          }
+
+          ... on ModuleProjects {
+            ...ModuleProjects
+          }
+
+          ... on ModuleServices {
+            ...ModuleServices
+          }
+
+          ... on ModuleWorkHistory {
+            ...ModuleWorkHistory
+          }
+        }
+      }
+    }
+  }
+}
+
+query PageBySlug($slug: String!) {
+  pageCollection(where: { slug: $slug }, limit: 1) {
+    items {
+      slug
+      sys {
+        id
+      }
+
+      modulesCollection(limit: 10) {
+        items {
+          __typename
+
+          ... on ModuleAboutMe {
+            ...ModuleAboutMe
+          }
+
+          ... on ModuleBlogPost {
+            ...ModuleBlogPost
+          }
+
           ... on ModulePageHeader {
             ...ModulePageHeader
           }
@@ -152,6 +222,10 @@ query PageByID($id: String!) {
         ... on ModuleAboutMe {
           ...ModuleAboutMe
         }
+
+        ... on ModuleBlogPost {
+            ...ModuleBlogPost
+          }
 
         ... on ModulePageHeader {
           ...ModulePageHeader
