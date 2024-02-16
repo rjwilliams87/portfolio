@@ -45,6 +45,14 @@ fragment ModuleBlogPost on ModuleBlogPost {
     }
   }
   readTime
+  headerImage {
+    title
+    description
+    contentType
+    url
+    width
+    height
+  }
   __typename
 }
 
