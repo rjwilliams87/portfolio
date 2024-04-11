@@ -4,13 +4,14 @@ import { documentToReactComponents, type Options } from "@contentful/rich-text-r
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 
 import { HeaderEntry } from "@/data/schema";
+import { SocialsModule } from "@/global/modules";
 // import { RotatingCTA } from "@/global/components";
 
 import s from "./page-header.module.css";
 
 const OPTIONS: Options = {
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (_, children) => <p className="text-2xl">{children}</p>,
+    [BLOCKS.PARAGRAPH]: (_, children) => <p className="text-2xl w-3/4">{children}</p>,
     [BLOCKS.HEADING_1]: (_, children) => (
       <p className="text-5xl lg:text-7xl pb-6 lg:pb-10 font-medium">{children}</p>
     ),
@@ -49,7 +50,12 @@ export function PageHeader(props: HeaderEntry) {
 
   return (
     <div className={containerStyles}>
-      <div className={textStyles}>{documentToReactComponents(text.json, OPTIONS)}</div>
+      <div className={textStyles}>
+        {documentToReactComponents(text.json, OPTIONS)}
+        <div className="pt-10">
+          <SocialsModule />
+        </div>
+      </div>
       {image && (
         <div className={imageStyles}>
           <Image src={image.url} alt={image.description || ""} objectFit="cover" layout="fill" />

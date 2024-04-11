@@ -18,7 +18,7 @@
 }
 
 .text-flex-row {
-  @apply w-full pb-8 md:pb-10 lg:pb-0 lg:relative lg:bottom-[38%]
+  @apply w-full pb-8 md:pb-10 lg:pb-0 lg:relative lg:bottom-[10%]
 }
 
 .text-flex-col {
@@ -42,7 +42,7 @@
 }
 
 .image-flex-row {
-  @apply w-full h-1/2 md:h-3/5 lg:w-1/2 lg:h-3/4;
+  @apply w-full h-1/2 md:h-3/5 lg:w-2/3 lg:h-3/4;
 }
 
 .image-flex-col {

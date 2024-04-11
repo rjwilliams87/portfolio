@@ -1,0 +1,64 @@
+.button {
+    width: 7.5rem;
+    height: 7.5rem;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    display: flex;
+    position: relative;
+    color: #121111;
+    text-decoration: none;
+    background-color: #f7f5ed;
+}
+
+.button:hover {
+    outline: 0;
+}
+
+.button-transform {
+    transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    transform-style: preserve-3d;
+}
+
+.button-overlay {
+    z-index: 1;
+    transform-origin: 50%;
+    border-radius: 100%;
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    background-color: #f7f5ed;
+}
+
+.button-text {
+    z-index: 2;
+    position: relative;
+}
+
+@media screen and (max-width: 1000px) {
+    .button {
+        will-change: transform;
+        transform: translate3d(0.0003rem, 0.0003rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+        transform-style: preserve-3d;
+    }
+
+    .button-text {
+        will-change: transform;
+        transform: translate3d(0.0002rem, -0.0002rem, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+        transform-style: preserve-3d;
+    }
+
+    .button-overlay {
+        transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+        transform-style: preserve-3d;
+    }
+}
