@@ -3,9 +3,10 @@ import { useState, useEffect, useRef } from "react";
 
 type Props = {
   children: React.ReactNode;
+  onClick?: () => void;
 };
 
-export function MagneticButton({ children }: Props) {
+export function MagneticButton({ children, onClick }: Props) {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const contentRef = useRef<HTMLElement | null>(null);
   const [hover, setHover] = useState(false);
@@ -47,6 +48,7 @@ export function MagneticButton({ children }: Props) {
   return (
     <button
       ref={buttonRef}
+      onClick={onClick}
       onMouseEnter={() => setHover(true)}
       className={`inline-flex items-center justify-center w-[7.5rem] h-[7.5rem] rounded-full text-center uppercase tracking-wider text-[1.05rem] leading-[1.2] px-[1.5rem] text-[#121111] bg-[#f7f5ed] border-2 border-gray-300 transition-all duration-300 ease-out`}
     >
