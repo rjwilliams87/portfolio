@@ -15,7 +15,7 @@ const renderOptions = (richText: any): Options => {
   return {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (_, children) => (
-        <p className="text-3xl md:text-6xl md:leading-[1.2] my-4">{children}</p>
+        <p className="text-3xl md:text-4xl md:leading-[1.4] my-4">{children}</p>
       ),
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const asset = assetBlockMap.get(node.data.target.sys.id);
@@ -38,9 +38,18 @@ export function AboutMe(props: AboutMeEntry) {
 
   return (
     <div className="page-section" id="about">
-      <div className="site-content-container">
-        <h2 className="font-bold md:float-start text-2xl md:pr-[30%]">ABOUT</h2>
-        <div>{documentToReactComponents(description.json, { ...renderOptions(description) })}</div>
+      <div className="site-content-container flex justify-end">
+        <div className="w-full md:w-4/5 lg:w-3/5">
+          {documentToReactComponents(description.json, { ...renderOptions(description) })}
+          <div className="flex flex-row gap-12 py-8">
+            {/* hacky need to change field names */}
+            {roles.map((role, index) => (
+              <div key={index} className="text-xl">
+                {role}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
