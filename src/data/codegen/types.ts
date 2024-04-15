@@ -502,9 +502,24 @@ export type ComponentProjectDescriptionLinks = {
 
 export type ComponentProjectDescriptionResources = {
   __typename?: "ComponentProjectDescriptionResources";
-  block: Array<ResourceLink>;
-  hyperlink: Array<ResourceLink>;
-  inline: Array<ResourceLink>;
+  block: Array<ComponentProjectDescriptionResourcesBlock>;
+  hyperlink: Array<ComponentProjectDescriptionResourcesHyperlink>;
+  inline: Array<ComponentProjectDescriptionResourcesInline>;
+};
+
+export type ComponentProjectDescriptionResourcesBlock = ResourceLink & {
+  __typename?: "ComponentProjectDescriptionResourcesBlock";
+  sys: ResourceSys;
+};
+
+export type ComponentProjectDescriptionResourcesHyperlink = ResourceLink & {
+  __typename?: "ComponentProjectDescriptionResourcesHyperlink";
+  sys: ResourceSys;
+};
+
+export type ComponentProjectDescriptionResourcesInline = ResourceLink & {
+  __typename?: "ComponentProjectDescriptionResourcesInline";
+  sys: ResourceSys;
 };
 
 export type ComponentProjectFilter = {
@@ -650,9 +665,24 @@ export type ComponentServiceDescriptionLinks = {
 
 export type ComponentServiceDescriptionResources = {
   __typename?: "ComponentServiceDescriptionResources";
-  block: Array<ResourceLink>;
-  hyperlink: Array<ResourceLink>;
-  inline: Array<ResourceLink>;
+  block: Array<ComponentServiceDescriptionResourcesBlock>;
+  hyperlink: Array<ComponentServiceDescriptionResourcesHyperlink>;
+  inline: Array<ComponentServiceDescriptionResourcesInline>;
+};
+
+export type ComponentServiceDescriptionResourcesBlock = ResourceLink & {
+  __typename?: "ComponentServiceDescriptionResourcesBlock";
+  sys: ResourceSys;
+};
+
+export type ComponentServiceDescriptionResourcesHyperlink = ResourceLink & {
+  __typename?: "ComponentServiceDescriptionResourcesHyperlink";
+  sys: ResourceSys;
+};
+
+export type ComponentServiceDescriptionResourcesInline = ResourceLink & {
+  __typename?: "ComponentServiceDescriptionResourcesInline";
+  sys: ResourceSys;
 };
 
 export type ComponentServiceFilter = {
@@ -806,9 +836,24 @@ export type ComponentWorkHistoryItemDescriptionLinks = {
 
 export type ComponentWorkHistoryItemDescriptionResources = {
   __typename?: "ComponentWorkHistoryItemDescriptionResources";
-  block: Array<ResourceLink>;
-  hyperlink: Array<ResourceLink>;
-  inline: Array<ResourceLink>;
+  block: Array<ComponentWorkHistoryItemDescriptionResourcesBlock>;
+  hyperlink: Array<ComponentWorkHistoryItemDescriptionResourcesHyperlink>;
+  inline: Array<ComponentWorkHistoryItemDescriptionResourcesInline>;
+};
+
+export type ComponentWorkHistoryItemDescriptionResourcesBlock = ResourceLink & {
+  __typename?: "ComponentWorkHistoryItemDescriptionResourcesBlock";
+  sys: ResourceSys;
+};
+
+export type ComponentWorkHistoryItemDescriptionResourcesHyperlink = ResourceLink & {
+  __typename?: "ComponentWorkHistoryItemDescriptionResourcesHyperlink";
+  sys: ResourceSys;
+};
+
+export type ComponentWorkHistoryItemDescriptionResourcesInline = ResourceLink & {
+  __typename?: "ComponentWorkHistoryItemDescriptionResourcesInline";
+  sys: ResourceSys;
 };
 
 export type ComponentWorkHistoryItemFilter = {
@@ -1143,9 +1188,24 @@ export type ModuleAboutMeDescriptionLinks = {
 
 export type ModuleAboutMeDescriptionResources = {
   __typename?: "ModuleAboutMeDescriptionResources";
-  block: Array<ResourceLink>;
-  hyperlink: Array<ResourceLink>;
-  inline: Array<ResourceLink>;
+  block: Array<ModuleAboutMeDescriptionResourcesBlock>;
+  hyperlink: Array<ModuleAboutMeDescriptionResourcesHyperlink>;
+  inline: Array<ModuleAboutMeDescriptionResourcesInline>;
+};
+
+export type ModuleAboutMeDescriptionResourcesBlock = ResourceLink & {
+  __typename?: "ModuleAboutMeDescriptionResourcesBlock";
+  sys: ResourceSys;
+};
+
+export type ModuleAboutMeDescriptionResourcesHyperlink = ResourceLink & {
+  __typename?: "ModuleAboutMeDescriptionResourcesHyperlink";
+  sys: ResourceSys;
+};
+
+export type ModuleAboutMeDescriptionResourcesInline = ResourceLink & {
+  __typename?: "ModuleAboutMeDescriptionResourcesInline";
+  sys: ResourceSys;
 };
 
 export type ModuleAboutMeFilter = {
@@ -1308,9 +1368,24 @@ export type ModuleBlogPostBodyLinks = {
 
 export type ModuleBlogPostBodyResources = {
   __typename?: "ModuleBlogPostBodyResources";
-  block: Array<ResourceLink>;
-  hyperlink: Array<ResourceLink>;
-  inline: Array<ResourceLink>;
+  block: Array<ModuleBlogPostBodyResourcesBlock>;
+  hyperlink: Array<ModuleBlogPostBodyResourcesHyperlink>;
+  inline: Array<ModuleBlogPostBodyResourcesInline>;
+};
+
+export type ModuleBlogPostBodyResourcesBlock = ResourceLink & {
+  __typename?: "ModuleBlogPostBodyResourcesBlock";
+  sys: ResourceSys;
+};
+
+export type ModuleBlogPostBodyResourcesHyperlink = ResourceLink & {
+  __typename?: "ModuleBlogPostBodyResourcesHyperlink";
+  sys: ResourceSys;
+};
+
+export type ModuleBlogPostBodyResourcesInline = ResourceLink & {
+  __typename?: "ModuleBlogPostBodyResourcesInline";
+  sys: ResourceSys;
 };
 
 export type ModuleBlogPostCollection = {
@@ -1407,6 +1482,164 @@ export enum ModuleBlogPostOrder {
   TitleAsc = "title_ASC",
   TitleDesc = "title_DESC",
 }
+
+/** [See type definition](https://app.contentful.com/spaces/v0ty7qkcy8s7/content_types/moduleContactMe) */
+export type ModuleContactMe = Entry & {
+  __typename?: "ModuleContactMe";
+  contentfulMetadata: ContentfulMetadata;
+  entryTitle: Maybe<Scalars["String"]["output"]>;
+  linkedFrom: Maybe<ModuleContactMeLinkingCollections>;
+  showContactButton: Maybe<Scalars["Boolean"]["output"]>;
+  sys: Sys;
+  text: Maybe<ModuleContactMeText>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/v0ty7qkcy8s7/content_types/moduleContactMe) */
+export type ModuleContactMeEntryTitleArgs = {
+  locale: InputMaybe<Scalars["String"]["input"]>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/v0ty7qkcy8s7/content_types/moduleContactMe) */
+export type ModuleContactMeLinkedFromArgs = {
+  allowedLocales: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/v0ty7qkcy8s7/content_types/moduleContactMe) */
+export type ModuleContactMeShowContactButtonArgs = {
+  locale: InputMaybe<Scalars["String"]["input"]>;
+};
+
+/** [See type definition](https://app.contentful.com/spaces/v0ty7qkcy8s7/content_types/moduleContactMe) */
+export type ModuleContactMeTextArgs = {
+  locale: InputMaybe<Scalars["String"]["input"]>;
+};
+
+export type ModuleContactMeCollection = {
+  __typename?: "ModuleContactMeCollection";
+  items: Array<Maybe<ModuleContactMe>>;
+  limit: Scalars["Int"]["output"];
+  skip: Scalars["Int"]["output"];
+  total: Scalars["Int"]["output"];
+};
+
+export type ModuleContactMeFilter = {
+  AND: InputMaybe<Array<InputMaybe<ModuleContactMeFilter>>>;
+  OR: InputMaybe<Array<InputMaybe<ModuleContactMeFilter>>>;
+  contentfulMetadata: InputMaybe<ContentfulMetadataFilter>;
+  entryTitle: InputMaybe<Scalars["String"]["input"]>;
+  entryTitle_contains: InputMaybe<Scalars["String"]["input"]>;
+  entryTitle_exists: InputMaybe<Scalars["Boolean"]["input"]>;
+  entryTitle_in: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  entryTitle_not: InputMaybe<Scalars["String"]["input"]>;
+  entryTitle_not_contains: InputMaybe<Scalars["String"]["input"]>;
+  entryTitle_not_in: InputMaybe<Array<InputMaybe<Scalars["String"]["input"]>>>;
+  showContactButton: InputMaybe<Scalars["Boolean"]["input"]>;
+  showContactButton_exists: InputMaybe<Scalars["Boolean"]["input"]>;
+  showContactButton_not: InputMaybe<Scalars["Boolean"]["input"]>;
+  sys: InputMaybe<SysFilter>;
+  text_contains: InputMaybe<Scalars["String"]["input"]>;
+  text_exists: InputMaybe<Scalars["Boolean"]["input"]>;
+  text_not_contains: InputMaybe<Scalars["String"]["input"]>;
+};
+
+export type ModuleContactMeLinkingCollections = {
+  __typename?: "ModuleContactMeLinkingCollections";
+  entryCollection: Maybe<EntryCollection>;
+  pageCollection: Maybe<PageCollection>;
+};
+
+export type ModuleContactMeLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  locale: InputMaybe<Scalars["String"]["input"]>;
+  preview: InputMaybe<Scalars["Boolean"]["input"]>;
+  skip?: InputMaybe<Scalars["Int"]["input"]>;
+};
+
+export type ModuleContactMeLinkingCollectionsPageCollectionArgs = {
+  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  locale: InputMaybe<Scalars["String"]["input"]>;
+  order: InputMaybe<Array<InputMaybe<ModuleContactMeLinkingCollectionsPageCollectionOrder>>>;
+  preview: InputMaybe<Scalars["Boolean"]["input"]>;
+  skip?: InputMaybe<Scalars["Int"]["input"]>;
+};
+
+export enum ModuleContactMeLinkingCollectionsPageCollectionOrder {
+  EntryTitleAsc = "entryTitle_ASC",
+  EntryTitleDesc = "entryTitle_DESC",
+  SlugAsc = "slug_ASC",
+  SlugDesc = "slug_DESC",
+  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
+  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
+  SysIdAsc = "sys_id_ASC",
+  SysIdDesc = "sys_id_DESC",
+  SysPublishedAtAsc = "sys_publishedAt_ASC",
+  SysPublishedAtDesc = "sys_publishedAt_DESC",
+  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
+  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
+}
+
+export enum ModuleContactMeOrder {
+  EntryTitleAsc = "entryTitle_ASC",
+  EntryTitleDesc = "entryTitle_DESC",
+  ShowContactButtonAsc = "showContactButton_ASC",
+  ShowContactButtonDesc = "showContactButton_DESC",
+  SysFirstPublishedAtAsc = "sys_firstPublishedAt_ASC",
+  SysFirstPublishedAtDesc = "sys_firstPublishedAt_DESC",
+  SysIdAsc = "sys_id_ASC",
+  SysIdDesc = "sys_id_DESC",
+  SysPublishedAtAsc = "sys_publishedAt_ASC",
+  SysPublishedAtDesc = "sys_publishedAt_DESC",
+  SysPublishedVersionAsc = "sys_publishedVersion_ASC",
+  SysPublishedVersionDesc = "sys_publishedVersion_DESC",
+}
+
+export type ModuleContactMeText = {
+  __typename?: "ModuleContactMeText";
+  json: Scalars["JSON"]["output"];
+  links: ModuleContactMeTextLinks;
+};
+
+export type ModuleContactMeTextAssets = {
+  __typename?: "ModuleContactMeTextAssets";
+  block: Array<Maybe<Asset>>;
+  hyperlink: Array<Maybe<Asset>>;
+};
+
+export type ModuleContactMeTextEntries = {
+  __typename?: "ModuleContactMeTextEntries";
+  block: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  inline: Array<Maybe<Entry>>;
+};
+
+export type ModuleContactMeTextLinks = {
+  __typename?: "ModuleContactMeTextLinks";
+  assets: ModuleContactMeTextAssets;
+  entries: ModuleContactMeTextEntries;
+  resources: ModuleContactMeTextResources;
+};
+
+export type ModuleContactMeTextResources = {
+  __typename?: "ModuleContactMeTextResources";
+  block: Array<ModuleContactMeTextResourcesBlock>;
+  hyperlink: Array<ModuleContactMeTextResourcesHyperlink>;
+  inline: Array<ModuleContactMeTextResourcesInline>;
+};
+
+export type ModuleContactMeTextResourcesBlock = ResourceLink & {
+  __typename?: "ModuleContactMeTextResourcesBlock";
+  sys: ResourceSys;
+};
+
+export type ModuleContactMeTextResourcesHyperlink = ResourceLink & {
+  __typename?: "ModuleContactMeTextResourcesHyperlink";
+  sys: ResourceSys;
+};
+
+export type ModuleContactMeTextResourcesInline = ResourceLink & {
+  __typename?: "ModuleContactMeTextResourcesInline";
+  sys: ResourceSys;
+};
 
 /** [See type definition](https://app.contentful.com/spaces/v0ty7qkcy8s7/content_types/moduleNavList) */
 export type ModuleNavList = Entry & {
@@ -1675,9 +1908,24 @@ export type ModulePageHeaderTextLinks = {
 
 export type ModulePageHeaderTextResources = {
   __typename?: "ModulePageHeaderTextResources";
-  block: Array<ResourceLink>;
-  hyperlink: Array<ResourceLink>;
-  inline: Array<ResourceLink>;
+  block: Array<ModulePageHeaderTextResourcesBlock>;
+  hyperlink: Array<ModulePageHeaderTextResourcesHyperlink>;
+  inline: Array<ModulePageHeaderTextResourcesInline>;
+};
+
+export type ModulePageHeaderTextResourcesBlock = ResourceLink & {
+  __typename?: "ModulePageHeaderTextResourcesBlock";
+  sys: ResourceSys;
+};
+
+export type ModulePageHeaderTextResourcesHyperlink = ResourceLink & {
+  __typename?: "ModulePageHeaderTextResourcesHyperlink";
+  sys: ResourceSys;
+};
+
+export type ModulePageHeaderTextResourcesInline = ResourceLink & {
+  __typename?: "ModulePageHeaderTextResourcesInline";
+  sys: ResourceSys;
 };
 
 /** [See type definition](https://app.contentful.com/spaces/v0ty7qkcy8s7/content_types/moduleProjects) */
@@ -2156,6 +2404,7 @@ export type PageModulesFilter = {
 export type PageModulesItem =
   | ModuleAboutMe
   | ModuleBlogPost
+  | ModuleContactMe
   | ModulePageHeader
   | ModuleProjects
   | ModuleServices
@@ -2196,6 +2445,8 @@ export type Query = {
   moduleAboutMeCollection: Maybe<ModuleAboutMeCollection>;
   moduleBlogPost: Maybe<ModuleBlogPost>;
   moduleBlogPostCollection: Maybe<ModuleBlogPostCollection>;
+  moduleContactMe: Maybe<ModuleContactMe>;
+  moduleContactMeCollection: Maybe<ModuleContactMeCollection>;
   moduleNavList: Maybe<ModuleNavList>;
   moduleNavListCollection: Maybe<ModuleNavListCollection>;
   modulePageHeader: Maybe<ModulePageHeader>;
@@ -2345,6 +2596,21 @@ export type QueryModuleBlogPostCollectionArgs = {
   where: InputMaybe<ModuleBlogPostFilter>;
 };
 
+export type QueryModuleContactMeArgs = {
+  id: Scalars["String"]["input"];
+  locale: InputMaybe<Scalars["String"]["input"]>;
+  preview: InputMaybe<Scalars["Boolean"]["input"]>;
+};
+
+export type QueryModuleContactMeCollectionArgs = {
+  limit?: InputMaybe<Scalars["Int"]["input"]>;
+  locale: InputMaybe<Scalars["String"]["input"]>;
+  order: InputMaybe<Array<InputMaybe<ModuleContactMeOrder>>>;
+  preview: InputMaybe<Scalars["Boolean"]["input"]>;
+  skip?: InputMaybe<Scalars["Int"]["input"]>;
+  where: InputMaybe<ModuleContactMeFilter>;
+};
+
 export type QueryModuleNavListArgs = {
   id: Scalars["String"]["input"];
   locale: InputMaybe<Scalars["String"]["input"]>;
@@ -2436,14 +2702,12 @@ export type QueryPageCollectionArgs = {
 };
 
 export type ResourceLink = {
-  __typename?: "ResourceLink";
   sys: ResourceSys;
 };
 
 export type ResourceSys = {
   __typename?: "ResourceSys";
   linkType: Scalars["String"]["output"];
-  type: Scalars["String"]["output"];
   urn: Scalars["String"]["output"];
 };
 

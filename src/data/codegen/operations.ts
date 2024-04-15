@@ -65,6 +65,12 @@ export type ModuleBlogPostFragment = {
   } | null;
 };
 
+export type ModuleContactMeFragment = {
+  __typename: "ModuleContactMe";
+  showContactButton: boolean | null;
+  text: { __typename?: "ModuleContactMeText"; json: any } | null;
+};
+
 export type ModulePageHeaderFragment = {
   __typename: "ModulePageHeader";
   size: string | null;
@@ -221,6 +227,11 @@ export type LandingPageQuery = {
               } | null;
             }
           | {
+              __typename: "ModuleContactMe";
+              showContactButton: boolean | null;
+              text: { __typename?: "ModuleContactMeText"; json: any } | null;
+            }
+          | {
               __typename: "ModulePageHeader";
               size: string | null;
               layout: string | null;
@@ -370,6 +381,11 @@ export type PageBySlugQuery = {
               } | null;
             }
           | {
+              __typename: "ModuleContactMe";
+              showContactButton: boolean | null;
+              text: { __typename?: "ModuleContactMeText"; json: any } | null;
+            }
+          | {
               __typename: "ModulePageHeader";
               size: string | null;
               layout: string | null;
@@ -517,6 +533,11 @@ export type PageByIdQuery = {
             } | null;
           }
         | {
+            __typename: "ModuleContactMe";
+            showContactButton: boolean | null;
+            text: { __typename?: "ModuleContactMeText"; json: any } | null;
+          }
+        | {
             __typename: "ModulePageHeader";
             size: string | null;
             layout: string | null;
@@ -648,6 +669,15 @@ export const ModuleBlogPostFragmentDoc = gql`
     __typename
   }
 `;
+export const ModuleContactMeFragmentDoc = gql`
+  fragment ModuleContactMe on ModuleContactMe {
+    showContactButton
+    text {
+      json
+    }
+    __typename
+  }
+`;
 export const ModulePageHeaderFragmentDoc = gql`
   fragment ModulePageHeader on ModulePageHeader {
     text {
@@ -748,6 +778,9 @@ export const LandingPageDocument = gql`
             ... on ModuleBlogPost {
               ...ModuleBlogPost
             }
+            ... on ModuleContactMe {
+              ...ModuleContactMe
+            }
             ... on ModulePageHeader {
               ...ModulePageHeader
             }
@@ -767,6 +800,7 @@ export const LandingPageDocument = gql`
   }
   ${ModuleAboutMeFragmentDoc}
   ${ModuleBlogPostFragmentDoc}
+  ${ModuleContactMeFragmentDoc}
   ${ModulePageHeaderFragmentDoc}
   ${ModuleProjectsFragmentDoc}
   ${ModuleServicesFragmentDoc}
@@ -789,6 +823,9 @@ export const PageBySlugDocument = gql`
             ... on ModuleBlogPost {
               ...ModuleBlogPost
             }
+            ... on ModuleContactMe {
+              ...ModuleContactMe
+            }
             ... on ModulePageHeader {
               ...ModulePageHeader
             }
@@ -808,6 +845,7 @@ export const PageBySlugDocument = gql`
   }
   ${ModuleAboutMeFragmentDoc}
   ${ModuleBlogPostFragmentDoc}
+  ${ModuleContactMeFragmentDoc}
   ${ModulePageHeaderFragmentDoc}
   ${ModuleProjectsFragmentDoc}
   ${ModuleServicesFragmentDoc}
@@ -829,6 +867,9 @@ export const PageByIdDocument = gql`
           ... on ModuleBlogPost {
             ...ModuleBlogPost
           }
+          ... on ModuleContactMe {
+            ...ModuleContactMe
+          }
           ... on ModulePageHeader {
             ...ModulePageHeader
           }
@@ -847,6 +888,7 @@ export const PageByIdDocument = gql`
   }
   ${ModuleAboutMeFragmentDoc}
   ${ModuleBlogPostFragmentDoc}
+  ${ModuleContactMeFragmentDoc}
   ${ModulePageHeaderFragmentDoc}
   ${ModuleProjectsFragmentDoc}
   ${ModuleServicesFragmentDoc}

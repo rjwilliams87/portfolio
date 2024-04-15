@@ -56,6 +56,14 @@ fragment ModuleBlogPost on ModuleBlogPost {
   __typename
 }
 
+fragment ModuleContactMe on ModuleContactMe {
+  showContactButton
+  text {
+    json
+  }
+  __typename
+}
+
 fragment ModulePageHeader on ModulePageHeader {
   text {
     json
@@ -154,6 +162,10 @@ query LandingPage {
             ...ModuleBlogPost
           }
 
+          ... on ModuleContactMe {
+            ...ModuleContactMe
+          }
+
           ... on ModulePageHeader {
             ...ModulePageHeader
           }
@@ -195,6 +207,10 @@ query PageBySlug($slug: String!) {
             ...ModuleBlogPost
           }
 
+          ... on ModuleContactMe {
+            ...ModuleContactMe
+          }
+
           ... on ModulePageHeader {
             ...ModulePageHeader
           }
@@ -234,6 +250,10 @@ query PageByID($id: String!) {
         ... on ModuleBlogPost {
             ...ModuleBlogPost
           }
+
+        ... on ModuleContactMe {
+          ...ModuleContactMe
+        }
 
         ... on ModulePageHeader {
           ...ModulePageHeader

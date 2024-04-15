@@ -1,12 +1,14 @@
 "use client";
+import { cn } from "@/lib/utils";
 import { useState, useEffect, useRef } from "react";
 
 type Props = {
   children: React.ReactNode;
   onClick?: () => void;
+  theme?: "light" | "dark";
 };
 
-export function MagneticButton({ children, onClick }: Props) {
+export function MagneticButton({ children, onClick, theme = "light" }: Props) {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const contentRef = useRef<HTMLElement | null>(null);
   const [hover, setHover] = useState(false);
@@ -45,13 +47,16 @@ export function MagneticButton({ children, onClick }: Props) {
     }
   }, []);
 
+  const style = cn(
+    `inline-flex items-center justify-center w-[7.5rem] h-[7.5rem] rounded-full text-center uppercase tracking-wider text-[1.05rem] leading-[1.2] px-[1.5rem] border-2 border-gray-300 transition-all duration-300 ease-out`,
+    {
+      ["text-[#121111] bg-[#f7f5ed]"]: theme === "light",
+      ["text-[#f7f5ed] bg-[#121111]"]: theme === "dark",
+    },
+  );
+
   return (
-    <button
-      ref={buttonRef}
-      onClick={onClick}
-      onMouseEnter={() => setHover(true)}
-      className={`inline-flex items-center justify-center w-[7.5rem] h-[7.5rem] rounded-full text-center uppercase tracking-wider text-[1.05rem] leading-[1.2] px-[1.5rem] text-[#121111] bg-[#f7f5ed] border-2 border-gray-300 transition-all duration-300 ease-out`}
-    >
+    <button ref={buttonRef} onClick={onClick} onMouseEnter={() => setHover(true)} className={style}>
       <span ref={contentRef} className="flex items-center justify-center">
         {children}
       </span>
