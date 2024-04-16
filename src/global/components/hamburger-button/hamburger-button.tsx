@@ -1,15 +1,19 @@
 "use client";
 import { clsx } from "clsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import s from "./hamburger-button.module.css";
 
-export function HamburgerButton() {
+type HamburgerButtonProps = {
+  onOpen?: () => void;
+  onClose?: () => void;
+};
+
+export function HamburgerButton({ onOpen, onClose }: HamburgerButtonProps) {
   const [isClosed, setIsClosed] = useState(false);
 
   const handleButtonClick = () => {
     const button = document.getElementById("hamburger");
-    console.log(button);
 
     if (!button) return;
 
@@ -17,20 +21,38 @@ export function HamburgerButton() {
       button.classList.remove(s["is-open"]);
       button.classList.add(s["is-closed"]);
       setIsClosed(false);
+      if (onClose) onClose();
     } else {
       button.classList.remove(s["is-closed"]);
       button.classList.add(s["is-open"]);
       setIsClosed(true);
+      if (onOpen) onOpen();
     }
   };
 
+  useEffect(() => {
+    const handleWidthChange = () => {
+      const button = document.getElementById("hamburger");
+
+      if (!button) return;
+
+      if (window.innerWidth >= 768) {
+        button.classList.remove(s["is-open"]);
+        button.classList.remove(s["is-closed"]);
+        setIsClosed(false);
+      }
+    };
+
+    window.addEventListener("resize", handleWidthChange);
+
+    return () => {
+      window.removeEventListener("resize", handleWidthChange);
+    };
+  }, []);
+
   return (
     <>
-      <a
-        id="hamburger"
-        className={clsx(s["hamburglar"], s["is-closed"])}
-        onClick={handleButtonClick}
-      >
+      <a id="hamburger" className={clsx(s["hamburglar"], "z-20")} onClick={handleButtonClick}>
         <div className={clsx(s["burger-icon"])}>
           <div className={clsx(s["burger-container"])}>
             <span className={clsx(s["burger-bun-top"])}></span>
@@ -44,7 +66,7 @@ export function HamburgerButton() {
             <path
               className={clsx(s["path"])}
               fill="none"
-              stroke="#fff"
+              stroke="#f7f5ed"
               strokeMiterlimit="10"
               strokeWidth="4"
               d="M 34 2 C 16.3 2 2 16.3 2 34 s 14.3 32 32 32 s 32 -14.3 32 -32 S 51.7 2 34 2"
