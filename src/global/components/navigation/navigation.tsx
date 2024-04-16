@@ -41,7 +41,7 @@ export function Navigation({ items = NAVIGATION_ITEMS }) {
 
   return (
     <>
-      <div className="flex justify-between items-center w-full px-4 md:px-2 lg:px-24 py-4 md:py-8 absolute">
+      <div className="flex justify-between items-center w-full px-4 md:px-2 lg:px-24 py-4 md:py-8 min-w-[320px] max-w-[1800px]">
         <div className="flex gap-4 relative top-6 md:top-0">
           <Logo.Light height="45" width="45" />
           <div className="flex flex-col h-full justify-start items-start">

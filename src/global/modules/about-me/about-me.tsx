@@ -39,7 +39,7 @@ export function AboutMe(props: AboutMeEntry) {
   return (
     <div className="page-section" id="about">
       <div className="site-content-container flex justify-end">
-        <div className="w-full md:w-4/5 lg:w-3/5">
+        <div className="w-full lg:w-3/5">
           {documentToReactComponents(description.json, { ...renderOptions(description) })}
           <div className="flex flex-row gap-12 py-8">
             {/* hacky need to change field names */}

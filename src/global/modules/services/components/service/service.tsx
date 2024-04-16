@@ -27,7 +27,7 @@ export function Service(props: ServiceItemEntry & { index: number }) {
             {index === 1 && <FaMobile className="h-12 w-12" />}
             {index === 2 && <IoCloud className="h-12 w-12" />}
             {index === 3 && <GoSync className="h-12 w-12" />}
-            <h3 className="text-2xl py-6">{title}</h3>
+            <h3 className="text-base md:text-xl lg:text-2xl py-6">{title}</h3>
           </div>
         </AccordionTrigger>
         <AccordionContent>

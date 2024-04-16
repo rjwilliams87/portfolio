@@ -10,9 +10,9 @@ import s from "./page-header.module.css";
 
 const OPTIONS: Options = {
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (_, children) => <p className="text-xl w-3/4">{children}</p>,
+    [BLOCKS.PARAGRAPH]: (_, children) => <p className="text-lg sm:text-xl sm:w-3/4">{children}</p>,
     [BLOCKS.HEADING_1]: (_, children) => (
-      <p className="text-5xl lg:text-7xl pb-6 lg:pb-8 font-medium">{children}</p>
+      <p className="text-4xl sm:text-5xl lg:text-7xl pb-6 lg:pb-8 font-medium">{children}</p>
     ),
     [BLOCKS.HEADING_2]: (_, children) => <p className="text-3xl lg:text-5xl">{children}</p>,
     [INLINES.HYPERLINK]: (node, children) => (
