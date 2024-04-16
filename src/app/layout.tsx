@@ -2,7 +2,7 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 
-import { Contact, Navigation } from "@/global/components";
+import { Footer, Navigation } from "@/global/components";
 import { cn } from "@/lib/utils";
 
 import "./globals.css";
@@ -32,7 +32,7 @@ export default function RootLayout({
             <Navigation />
             {children}
           </main>
-          <Contact />
+          <Footer />
         </div>
       </body>
       <GoogleAnalytics gaId={NEXT_PUBLIC_GAID} />

@@ -1,4 +1,4 @@
-export function Contact() {
+export function Footer() {
   return (
     <div className="relative w-full bg-[#202020] h-[19rem] z-[1]" id="contact">
       <div className="w-full h-[19rem] flex flex-col justify-end fixed bottom-0 left-0 right-0 -z-10">

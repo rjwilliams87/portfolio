@@ -51,12 +51,7 @@ const ComponentMap = {
 };
 
 export function renderComponent(data: PageModules, index: number) {
-  console.log(data.__typename);
   const Component = ComponentMap[data.__typename] as React.FC<PageModules> | undefined;
-  console.log(Component?.name);
-  console.log(ComponentMap[ABOUT_ME_TYPENAME].name);
-  // console.log(ComponentMap[CONTACT_ME_TYPENAME].name);
-  // if (data.__typename === CONTACT_ME_TYPENAME) return <ContactMe {...data} key={`dc-${index}`} />;
   if (!Component || !data) return null;
   return <Component {...data} key={`dc-${index}`} />;
 }

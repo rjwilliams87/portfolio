@@ -1,5 +1,5 @@
 export * from "./accordion";
-export * from "./contact";
+export * from "./footer";
 export * from "./dynamic-component";
 export * from "./hamburger-button";
 export * from "./magnetic-button";
