@@ -65,9 +65,9 @@ export default function DynamicComponent({ page }: DynamicComponentProps) {
   const { modulesCollection } = page;
 
   return (
-    <div>
+    <>
       {/* <SEO /> */}
       {modulesCollection.items.map(renderComponent)}
-    </div>
+    </>
   );
 }

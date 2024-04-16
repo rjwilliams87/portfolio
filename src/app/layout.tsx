@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 
 import { Contact, Navigation } from "@/global/components";
+import { cn } from "@/lib/utils";
 
 import "./globals.css";
 
@@ -26,11 +27,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={manrope.className}>
-        <main className="relative overflow-hidden z-[9999]">
-          <Navigation />
-          {children}
-        </main>
-        <Contact />
+        <div>
+          <main className="relative overflow-hidden z-10 bg-brand-black">
+            <Navigation />
+            {children}
+          </main>
+          <Contact />
+        </div>
       </body>
       <GoogleAnalytics gaId={NEXT_PUBLIC_GAID} />
     </html>
