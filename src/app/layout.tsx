@@ -26,8 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={manrope.className}>
-        <Navigation />
-        {children}
+        <main className="relative overflow-hidden z-[9999]">
+          <Navigation />
+          {children}
+        </main>
         <Contact />
       </body>
       <GoogleAnalytics gaId={NEXT_PUBLIC_GAID} />

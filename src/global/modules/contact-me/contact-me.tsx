@@ -19,10 +19,8 @@ const OPTIONS: Options = {
 export function ContactMe(props: ContactMeEntry) {
   const { showContactButton, text } = props;
   return (
-    <div className="flex flex-col items-center justify-center gap-8 w-full py-24 md:py-36 bg-floral-white text-brand-black">
-      {text && (
-        <div className="pb-10 md:pb-16">{documentToReactComponents(text.json, OPTIONS)}</div>
-      )}
+    <div className="flex flex-col items-center justify-center gap-8 w-full py-20 md:py-36 bg-floral-white text-brand-black">
+      {text && <div className="pb-10">{documentToReactComponents(text.json, OPTIONS)}</div>}
       {showContactButton && <MagneticButton theme="dark">{"Let's Talk"}</MagneticButton>}
     </div>
   );

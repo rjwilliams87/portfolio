@@ -1,39 +1,28 @@
 export function Contact() {
   return (
-    <div
-      className="page-section bg-brand-background-dark text-brand-background min-h-[50vh] lg:min-h-svh"
-      id="contact"
-    >
-      <div className="site-content-container">
-        <div>
-          <a
-            className="text-5xl lg:text-8xl hover:text-brand-red"
-            href="mailto:ryanjacobwilliams@gmail.com"
-            target="_blank"
-          >
-            <span>EMAIL**</span>
-          </a>
-        </div>
-
-        <div className="pt-6 text-xl lg:text-3xl">follow me on</div>
-        <div>
-          <a
-            className="text-5xl lg:text-8xl hover:text-brand-blue"
-            href="https://www.linkedin.com/in/ryan-j-williams-dev/"
-            target="_blank"
-          >
-            <span>LINKEDIN</span>
-          </a>
-        </div>
-        <div>
-          <a
-            className="text-5xl lg:text-8xl hover:text-brand-orange"
-            href="https://github.com/rjwilliams87"
-            target="_blank"
-          >
-            <span>GITHUB</span>
-          </a>
-        </div>
+    <div className="relative w-full bg-[#202020] h-[19rem] -z-50" id="contact">
+      <div className="w-full h-[19rem] flex flex-col justify-end fixed bottom-0 left-0 right-0">
+        <footer className="px-10 w-full mx-auto flex flex-col justify-between py-8 -z-50">
+          <div className="border-b border-floral-white pb-6 flex justify-between items-end -z-50">
+            <div>Logo</div>
+            <div className="flex gap-4 items-center">
+              <div>logo</div>
+              <div>logo</div>
+            </div>
+          </div>
+          <div className="flex items-end justify-between py-8">
+            <div className="grid grid-cols-2 gap-16">
+              <div className="flex flex-col gap-4 items-start">
+                <div className="text-lg">hello</div>
+                <div className="text-lg">worlds</div>
+              </div>
+              <div className="flex flex-col gap-4 items-start">
+                <div className="text-lg">hello</div>
+                <div className="text-lg">world</div>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   );
