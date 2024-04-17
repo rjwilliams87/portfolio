@@ -27,10 +27,7 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={manrope.className}>
         <div>
-          <main className="relative overflow-hidden z-10 bg-brand-black">
-            <Navigation />
-            {children}
-          </main>
+          <main className="relative overflow-hidden z-10 bg-brand-black">{children}</main>
           <Footer />
         </div>
       </body>

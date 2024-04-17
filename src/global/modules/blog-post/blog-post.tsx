@@ -15,11 +15,11 @@ const renderOptions = (richText: any): Options => {
 
   return {
     renderNode: {
-      [BLOCKS.HEADING_1]: (_, children) => <h1 className="text-3xl font-bold my-8">{children}</h1>,
-      [BLOCKS.HEADING_2]: (_, children) => <h2 className="text-2xl font-bold my-6">{children}</h2>,
-      [BLOCKS.HEADING_3]: (_, children) => <h3 className="text-xl font-bold my-4">{children}</h3>,
+      [BLOCKS.HEADING_1]: (_, children) => <h1 className="text-3xl font-bold mt-12">{children}</h1>,
+      [BLOCKS.HEADING_2]: (_, children) => <h2 className="text-2xl font-bold mt-12">{children}</h2>,
+      [BLOCKS.HEADING_3]: (_, children) => <h3 className="text-xl font-bold mt-4">{children}</h3>,
       [BLOCKS.PARAGRAPH]: (_, children) => (
-        <p className="text-xl md:leading-[1.2] my-4">{children}</p>
+        <p className="text-lg md:leading-[1.8] my-4">{children}</p>
       ),
       [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const asset = assetBlockMap.get(node.data.target.sys.id);
@@ -55,21 +55,33 @@ const renderOptions = (richText: any): Options => {
     },
   };
 };
+
 export function BlogPost(props: BlogEntry) {
   return (
-    <div className="h-full px-16">
-      <h1 className="text-3xl font-bold mt-8 pb-2">{props.title}</h1>
-      <div>Written: {dayjs(props.publishedDate).format("MMMM DD, YYYY")}</div>
-      <div className="pb-2">Read time: {props.readTime}</div>
-      <div className="relative h-[400px] w-full">
+    <div className="h-full">
+      <h1 className="text-4xl font-medium mt-4 pb-8">{props.title}</h1>
+      <div className="flex gap-12 pb-6">
+        <div className="flex flex-col gap-1 text-sm">
+          <span className="font-semibold">Published</span>
+          <span className="text-[#999]">{dayjs(props.publishedDate).format("MMMM DD, YYYY")}</span>
+        </div>
+        <div className="flex flex-col gap-1 text-sm">
+          <span className="font-semibold">Read Time</span>
+          <span className="text-[#999]">{props.readTime}</span>
+        </div>
+      </div>
+      <div className="relative h-[800px] w-full overflow-hidden rounded-md">
         <Image
           src={props.headerImage.url}
           alt={props.headerImage.description || ""}
           objectFit="cover"
           layout="fill"
+          className="pb-8 rounded-md"
         />
       </div>
-      <div>{documentToReactComponents(props.body.json, { ...renderOptions(props.body) })}</div>
+      <div className="md:w-2/3">
+        {documentToReactComponents(props.body.json, { ...renderOptions(props.body) })}
+      </div>
     </div>
   );
 }

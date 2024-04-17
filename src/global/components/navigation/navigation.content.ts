@@ -1,12 +1,4 @@
 export const NAVIGATION_ITEMS = [
-  // {
-  //   href: "#work",
-  //   label: "WORK",
-  // },
-  // {
-  //   href: "#projects",
-  //   label: "PROJECTS",
-  // },
   {
     href: "#about",
     label: "ABOUT",
@@ -16,11 +8,30 @@ export const NAVIGATION_ITEMS = [
     label: "SERVICES",
   },
   {
-    href: "#blog",
+    href: "/blog",
     label: "BLOG",
   },
   {
-    href: "#contact",
+    href: "/contact",
+    label: "CONTACT",
+  },
+];
+
+export const NAVIGATION_ITEMS_WITH_BLOG = [
+  {
+    href: "/#about",
+    label: "ABOUT",
+  },
+  {
+    href: "/#services",
+    label: "SERVICES",
+  },
+  {
+    href: "/blog",
+    label: "BLOG",
+  },
+  {
+    href: "/contact",
     label: "CONTACT",
   },
 ];

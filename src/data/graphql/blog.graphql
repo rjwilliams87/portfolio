@@ -1,0 +1,25 @@
+query AllBlogPosts {
+    moduleBlogPostCollection {
+        items {
+            linkedFrom {
+                pageCollection(limit: 1) {
+                    items {
+                        slug
+                    }
+                }
+            }
+            title
+            publishedDate
+            readTime
+            headerImage {
+                title
+                description
+                contentType
+                url
+                width
+                height
+            }
+             __typename
+        }
+    }
+}
