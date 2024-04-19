@@ -1,16 +1,19 @@
 "use client";
 import { clsx } from "clsx";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import s from "./hamburger-button.module.css";
+import { NavContext } from "../navigation";
 
 type HamburgerButtonProps = {
   onOpen?: () => void;
   onClose?: () => void;
 };
 
+// should refactor to be part of navigation component
 export function HamburgerButton({ onOpen, onClose }: HamburgerButtonProps) {
   const [isClosed, setIsClosed] = useState(false);
+  const { menuVisible, closeMenu } = useContext(NavContext);
 
   const handleButtonClick = () => {
     const button = document.getElementById("hamburger");
@@ -29,6 +32,18 @@ export function HamburgerButton({ onOpen, onClose }: HamburgerButtonProps) {
       if (onOpen) onOpen();
     }
   };
+
+  useEffect(() => {
+    if (isClosed && !menuVisible) {
+      const button = document.getElementById("hamburger");
+
+      if (!button) return;
+
+      button.classList.remove(s["is-open"]);
+      button.classList.add(s["is-closed"]);
+      setIsClosed(false);
+    }
+  }, [menuVisible, isClosed, closeMenu]);
 
   useEffect(() => {
     const handleWidthChange = () => {

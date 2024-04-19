@@ -9,11 +9,15 @@ export const dynamic = "force-dynamic";
 export default async function Blog() {
   const posts = await getAllBlogs();
 
+  const sorted = [...posts].sort((a, b) => {
+    return dayjs(b.publishedDate).unix() - dayjs(a.publishedDate).unix();
+  });
+
   return (
     <div className="min-h-[50vh]">
       <h1 className="text-5xl pb-12">Articles & News</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pb-48">
-        {[...posts, ...posts, ...posts, ...posts].map((post, index) => (
+        {sorted.map((post, index) => (
           <Link key={`post-${index}`} href={post.slug} className="blog-link-image">
             <div className="relative h-[400px] w-full rounded-md overflow-hidden">
               <Image

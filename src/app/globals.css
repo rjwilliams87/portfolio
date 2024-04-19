@@ -35,3 +35,23 @@ body {
     transition-duration: 0.5s;
     transition-timing-function: ease-out;
 }
+
+input {
+  background-color: #121111 !important;
+  color: #f7f5ed !important;
+}
+
+input:-webkit-autofill {
+  background-color: #121111 !important;
+  color: #f7f5ed !important;
+}
+
+input:autofill {
+  background-color: #121111 !important;
+  color: #f7f5ed !important;
+}
+
+input:-internal-autofill-selected {
+  background-color: #121111 !important;
+  color: #f7f5ed !important;
+}

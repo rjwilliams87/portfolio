@@ -44,7 +44,7 @@ const renderOptions = (richText: any): Options => {
         return (
           <a
             href={node.data.uri}
-            className="text-brand-blue hover:underline"
+            className="text-brand-blue-light hover:underline"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -58,7 +58,7 @@ const renderOptions = (richText: any): Options => {
 
 export function BlogPost(props: BlogEntry) {
   return (
-    <div className="h-full">
+    <div className="h-full pb-24">
       <h1 className="text-4xl font-medium mt-4 pb-8">{props.title}</h1>
       <div className="flex gap-12 pb-6">
         <div className="flex flex-col gap-1 text-sm">
@@ -70,7 +70,7 @@ export function BlogPost(props: BlogEntry) {
           <span className="text-[#999]">{props.readTime}</span>
         </div>
       </div>
-      <div className="relative h-[800px] w-full overflow-hidden rounded-md">
+      <div className="relative h-[400px] md:h-[800px] w-full overflow-hidden rounded-md">
         <Image
           src={props.headerImage.url}
           alt={props.headerImage.description || ""}

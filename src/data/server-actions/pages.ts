@@ -41,7 +41,6 @@ export async function getPageById(id: string) {
 }
 
 export async function getPageBySlug(slug: string) {
-  console.log("SLUG = ", slug);
   const { client } = getUrqlClient();
   const results = await client.query<PageBySlugQuery, PageBySlugQueryVariables>(
     PageBySlugDocument,

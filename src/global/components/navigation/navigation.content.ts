@@ -1,37 +1,37 @@
 export const NAVIGATION_ITEMS = [
   {
     href: "#about",
-    label: "ABOUT",
+    label: "About",
   },
   {
     href: "#services",
-    label: "SERVICES",
+    label: "Services",
   },
   {
     href: "/blog",
-    label: "BLOG",
+    label: "Blog",
   },
   {
     href: "/contact",
-    label: "CONTACT",
+    label: "Contact",
   },
 ];
 
 export const NAVIGATION_ITEMS_WITH_BLOG = [
   {
     href: "/#about",
-    label: "ABOUT",
+    label: "About",
   },
   {
     href: "/#services",
-    label: "SERVICES",
+    label: "Services",
   },
   {
     href: "/blog",
-    label: "BLOG",
+    label: "Blog",
   },
   {
     href: "/contact",
-    label: "CONTACT",
+    label: "Contact",
   },
 ];

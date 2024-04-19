@@ -2,6 +2,7 @@ export * from "./accordion";
 export * from "./dynamic-component";
 export * from "./footer";
 export * from "./hamburger-button";
+export * from "./hubspot";
 export * from "./logo";
 export * from "./magnetic-button";
 export * from "./navigation";

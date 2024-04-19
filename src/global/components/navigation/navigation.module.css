@@ -4,14 +4,27 @@
 }
 
 .item:hover {
-  color: #121111;
-  background-color: #f7f5ed;
-  border-radius: 10px;
+  color: #999;
   cursor: pointer;
-  transform: rotate(-15deg);
+  /* border-radius: 10px; */
+  /* background-color: #f7f5ed; */
+  /* transform: rotate(-15deg); */
 }
 
-.item:active {
+/* .item:active {
   transform: rotate(15deg);
   background-color: #f7f5ed;
+} */
+
+.mobile-menu {
+  position: absolute;
+  width: 100vw;
+  height: 16rem;
+  top: -300px;
+  z-index: 1;
+  transition: top 0.4s ease-in;
+}
+
+.mobile-menu-show {
+  top: 100px;
 }
