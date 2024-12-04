@@ -1,5 +1,6 @@
 import { documentToReactComponents, type Options } from "@contentful/rich-text-react-renderer";
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
+import Link from "next/link";
 
 import { ContactMeEntry } from "@/data/schema";
 import { MagneticButton } from "@/global/components";
@@ -21,7 +22,11 @@ export function ContactMe(props: ContactMeEntry) {
   return (
     <div className="flex flex-col items-center justify-center gap-8 w-full py-20 md:py-36 bg-floral-white text-brand-black">
       {text && <div className="pb-10">{documentToReactComponents(text.json, OPTIONS)}</div>}
-      {showContactButton && <MagneticButton theme="dark">{"Let's Talk"}</MagneticButton>}
+      {showContactButton && (
+        <Link href="/contact">
+          <MagneticButton theme="dark">{"Let's Talk"}</MagneticButton>
+        </Link>
+      )}
     </div>
   );
 }

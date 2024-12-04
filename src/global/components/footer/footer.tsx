@@ -31,9 +31,9 @@ export function Footer() {
                 </div>
               </div>
               <div className="flex flex-col gap-4 items-start">
-                <div className="text-lg hover:text-[#999]">
+                {/* <div className="text-lg hover:text-[#999]">
                   <Link href="/blog">Blog</Link>
-                </div>
+                </div> */}
                 <div className="text-lg hover:text-[#999]">
                   <Link href="/contact">Contact</Link>
                 </div>

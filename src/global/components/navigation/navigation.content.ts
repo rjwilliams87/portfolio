@@ -7,10 +7,10 @@ export const NAVIGATION_ITEMS = [
     href: "#services",
     label: "Services",
   },
-  {
-    href: "/blog",
-    label: "Blog",
-  },
+  // {
+  //   href: "/blog",
+  //   label: "Blog",
+  // },
   {
     href: "/contact",
     label: "Contact",
@@ -26,10 +26,10 @@ export const NAVIGATION_ITEMS_WITH_BLOG = [
     href: "/#services",
     label: "Services",
   },
-  {
-    href: "/blog",
-    label: "Blog",
-  },
+  // {
+  //   href: "/blog",
+  //   label: "Blog",
+  // },
   {
     href: "/contact",
     label: "Contact",
