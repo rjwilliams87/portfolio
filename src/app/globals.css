@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 body {
-  background-color: #fffdf8;
+  background-color: #121111;
+  color: #f7f5ed
 }
 
 .page-section {
-  @apply my-0 py-10 lg:py-14 xl:py-20 lg:min-h-svh;
+  @apply my-0 py-8 mb-20 xl:mb-28;
 }
 
 .page-header {
@@ -15,5 +16,42 @@ body {
 }
 
 .site-content-container {
-  @apply px-4 lg:px-12 mx-auto;
+  @apply px-4 lg:px-24 mx-auto;
+  min-width: 320px;
+  max-width: 1800px;
+}
+
+.blog-link-image img {
+    @apply rounded-md cursor-pointer;
+    transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    transform-style: preserve-3d;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in;
+}
+
+.blog-link-image:hover img {
+    transform: translate3d(0px, 0px, 0px) scale3d(1.02, 1.02, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    transform-style: preserve-3d;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+}
+
+input {
+  background-color: #121111 !important;
+  color: #f7f5ed !important;
+}
+
+input:-webkit-autofill {
+  background-color: #121111 !important;
+  color: #f7f5ed !important;
+}
+
+input:autofill {
+  background-color: #121111 !important;
+  color: #f7f5ed !important;
+}
+
+input:-internal-autofill-selected {
+  background-color: #121111 !important;
+  color: #f7f5ed !important;
 }

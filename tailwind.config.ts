@@ -31,6 +31,8 @@ const config: Config = {
       "brand-background-dark": "#272727",
       "accent-1": "#EDEDED",
       "accent-2": "#666666",
+      "floral-white": "#f7f5ed",
+      "brand-black": "#121111",
     },
     keyframes: {
       "accordion-down": {

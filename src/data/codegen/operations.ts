@@ -2,6 +2,37 @@ import * as Types from "./types";
 
 import gql from "graphql-tag";
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+export type AllBlogPostsQueryVariables = Types.Exact<{ [key: string]: never }>;
+
+export type AllBlogPostsQuery = {
+  __typename?: "Query";
+  moduleBlogPostCollection: {
+    __typename?: "ModuleBlogPostCollection";
+    items: Array<{
+      __typename: "ModuleBlogPost";
+      title: string | null;
+      publishedDate: any | null;
+      readTime: string | null;
+      linkedFrom: {
+        __typename?: "ModuleBlogPostLinkingCollections";
+        pageCollection: {
+          __typename?: "PageCollection";
+          items: Array<{ __typename?: "Page"; slug: string | null } | null>;
+        } | null;
+      } | null;
+      headerImage: {
+        __typename?: "Asset";
+        title: string | null;
+        description: string | null;
+        contentType: string | null;
+        url: string | null;
+        width: number | null;
+        height: number | null;
+      } | null;
+    } | null>;
+  } | null;
+};
+
 export type ModuleAboutMeFragment = {
   __typename: "ModuleAboutMe";
   email: string | null;
@@ -27,6 +58,48 @@ export type ModuleAboutMeFragment = {
       };
     };
   } | null;
+};
+
+export type ModuleBlogPostFragment = {
+  __typename: "ModuleBlogPost";
+  title: string | null;
+  publishedDate: any | null;
+  readTime: string | null;
+  body: {
+    __typename?: "ModuleBlogPostBody";
+    json: any;
+    links: {
+      __typename?: "ModuleBlogPostBodyLinks";
+      assets: {
+        __typename?: "ModuleBlogPostBodyAssets";
+        block: Array<{
+          __typename?: "Asset";
+          title: string | null;
+          description: string | null;
+          contentType: string | null;
+          url: string | null;
+          width: number | null;
+          height: number | null;
+          sys: { __typename?: "Sys"; id: string };
+        } | null>;
+      };
+    };
+  } | null;
+  headerImage: {
+    __typename?: "Asset";
+    title: string | null;
+    description: string | null;
+    contentType: string | null;
+    url: string | null;
+    width: number | null;
+    height: number | null;
+  } | null;
+};
+
+export type ModuleContactMeFragment = {
+  __typename: "ModuleContactMe";
+  showContactButton: boolean | null;
+  text: { __typename?: "ModuleContactMeText"; json: any } | null;
 };
 
 export type ModulePageHeaderFragment = {
@@ -150,6 +223,200 @@ export type LandingPageQuery = {
               } | null;
             }
           | {
+              __typename: "ModuleBlogPost";
+              title: string | null;
+              publishedDate: any | null;
+              readTime: string | null;
+              body: {
+                __typename?: "ModuleBlogPostBody";
+                json: any;
+                links: {
+                  __typename?: "ModuleBlogPostBodyLinks";
+                  assets: {
+                    __typename?: "ModuleBlogPostBodyAssets";
+                    block: Array<{
+                      __typename?: "Asset";
+                      title: string | null;
+                      description: string | null;
+                      contentType: string | null;
+                      url: string | null;
+                      width: number | null;
+                      height: number | null;
+                      sys: { __typename?: "Sys"; id: string };
+                    } | null>;
+                  };
+                };
+              } | null;
+              headerImage: {
+                __typename?: "Asset";
+                title: string | null;
+                description: string | null;
+                contentType: string | null;
+                url: string | null;
+                width: number | null;
+                height: number | null;
+              } | null;
+            }
+          | {
+              __typename: "ModuleContactMe";
+              showContactButton: boolean | null;
+              text: { __typename?: "ModuleContactMeText"; json: any } | null;
+            }
+          | {
+              __typename: "ModulePageHeader";
+              size: string | null;
+              layout: string | null;
+              text: { __typename?: "ModulePageHeaderText"; json: any } | null;
+              image: {
+                __typename?: "Asset";
+                title: string | null;
+                description: string | null;
+                contentType: string | null;
+                url: string | null;
+                width: number | null;
+                height: number | null;
+              } | null;
+            }
+          | {
+              __typename: "ModuleProjects";
+              componentsCollection: {
+                __typename?: "ModuleProjectsComponentsCollection";
+                items: Array<{
+                  __typename: "ComponentProject";
+                  title: string | null;
+                  completionYear: any | null;
+                  tools: Array<string | null> | null;
+                  description: { __typename?: "ComponentProjectDescription"; json: any } | null;
+                  image: {
+                    __typename?: "Asset";
+                    title: string | null;
+                    description: string | null;
+                    contentType: string | null;
+                    url: string | null;
+                    width: number | null;
+                    height: number | null;
+                  } | null;
+                } | null>;
+              } | null;
+            }
+          | {
+              __typename: "ModuleServices";
+              componentsCollection: {
+                __typename?: "ModuleServicesComponentsCollection";
+                items: Array<{
+                  __typename: "ComponentService";
+                  title: string | null;
+                  description: { __typename?: "ComponentServiceDescription"; json: any } | null;
+                } | null>;
+              } | null;
+            }
+          | {
+              __typename: "ModuleWorkHistory";
+              componentsCollection: {
+                __typename?: "ModuleWorkHistoryComponentsCollection";
+                items: Array<{
+                  __typename: "ComponentWorkHistoryItem";
+                  companyName: string | null;
+                  skills: Array<string | null> | null;
+                  startDate: any | null;
+                  endDate: any | null;
+                  title: string | null;
+                  description: {
+                    __typename?: "ComponentWorkHistoryItemDescription";
+                    json: any;
+                  } | null;
+                } | null>;
+              } | null;
+            }
+          | null
+        >;
+      } | null;
+    } | null>;
+  } | null;
+};
+
+export type PageBySlugQueryVariables = Types.Exact<{
+  slug: Types.Scalars["String"]["input"];
+}>;
+
+export type PageBySlugQuery = {
+  __typename?: "Query";
+  pageCollection: {
+    __typename?: "PageCollection";
+    items: Array<{
+      __typename?: "Page";
+      slug: string | null;
+      sys: { __typename?: "Sys"; id: string };
+      modulesCollection: {
+        __typename?: "PageModulesCollection";
+        items: Array<
+          | {
+              __typename: "ModuleAboutMe";
+              email: string | null;
+              roles: Array<string | null> | null;
+              phone: string | null;
+              description: {
+                __typename?: "ModuleAboutMeDescription";
+                json: any;
+                links: {
+                  __typename?: "ModuleAboutMeDescriptionLinks";
+                  assets: {
+                    __typename?: "ModuleAboutMeDescriptionAssets";
+                    block: Array<{
+                      __typename?: "Asset";
+                      title: string | null;
+                      description: string | null;
+                      contentType: string | null;
+                      url: string | null;
+                      width: number | null;
+                      height: number | null;
+                      sys: { __typename?: "Sys"; id: string };
+                    } | null>;
+                  };
+                };
+              } | null;
+            }
+          | {
+              __typename: "ModuleBlogPost";
+              title: string | null;
+              publishedDate: any | null;
+              readTime: string | null;
+              body: {
+                __typename?: "ModuleBlogPostBody";
+                json: any;
+                links: {
+                  __typename?: "ModuleBlogPostBodyLinks";
+                  assets: {
+                    __typename?: "ModuleBlogPostBodyAssets";
+                    block: Array<{
+                      __typename?: "Asset";
+                      title: string | null;
+                      description: string | null;
+                      contentType: string | null;
+                      url: string | null;
+                      width: number | null;
+                      height: number | null;
+                      sys: { __typename?: "Sys"; id: string };
+                    } | null>;
+                  };
+                };
+              } | null;
+              headerImage: {
+                __typename?: "Asset";
+                title: string | null;
+                description: string | null;
+                contentType: string | null;
+                url: string | null;
+                width: number | null;
+                height: number | null;
+              } | null;
+            }
+          | {
+              __typename: "ModuleContactMe";
+              showContactButton: boolean | null;
+              text: { __typename?: "ModuleContactMeText"; json: any } | null;
+            }
+          | {
               __typename: "ModulePageHeader";
               size: string | null;
               layout: string | null;
@@ -262,6 +529,46 @@ export type PageByIdQuery = {
             } | null;
           }
         | {
+            __typename: "ModuleBlogPost";
+            title: string | null;
+            publishedDate: any | null;
+            readTime: string | null;
+            body: {
+              __typename?: "ModuleBlogPostBody";
+              json: any;
+              links: {
+                __typename?: "ModuleBlogPostBodyLinks";
+                assets: {
+                  __typename?: "ModuleBlogPostBodyAssets";
+                  block: Array<{
+                    __typename?: "Asset";
+                    title: string | null;
+                    description: string | null;
+                    contentType: string | null;
+                    url: string | null;
+                    width: number | null;
+                    height: number | null;
+                    sys: { __typename?: "Sys"; id: string };
+                  } | null>;
+                };
+              };
+            } | null;
+            headerImage: {
+              __typename?: "Asset";
+              title: string | null;
+              description: string | null;
+              contentType: string | null;
+              url: string | null;
+              width: number | null;
+              height: number | null;
+            } | null;
+          }
+        | {
+            __typename: "ModuleContactMe";
+            showContactButton: boolean | null;
+            text: { __typename?: "ModuleContactMeText"; json: any } | null;
+          }
+        | {
             __typename: "ModulePageHeader";
             size: string | null;
             layout: string | null;
@@ -359,6 +666,49 @@ export const ModuleAboutMeFragmentDoc = gql`
     __typename
   }
 `;
+export const ModuleBlogPostFragmentDoc = gql`
+  fragment ModuleBlogPost on ModuleBlogPost {
+    title
+    publishedDate
+    body {
+      json
+      links {
+        assets {
+          block {
+            sys {
+              id
+            }
+            title
+            description
+            contentType
+            url
+            width
+            height
+          }
+        }
+      }
+    }
+    readTime
+    headerImage {
+      title
+      description
+      contentType
+      url
+      width
+      height
+    }
+    __typename
+  }
+`;
+export const ModuleContactMeFragmentDoc = gql`
+  fragment ModuleContactMe on ModuleContactMe {
+    showContactButton
+    text {
+      json
+    }
+    __typename
+  }
+`;
 export const ModulePageHeaderFragmentDoc = gql`
   fragment ModulePageHeader on ModulePageHeader {
     text {
@@ -430,6 +780,33 @@ export const ModuleWorkHistoryFragmentDoc = gql`
     }
   }
 `;
+export const AllBlogPostsDocument = gql`
+  query AllBlogPosts {
+    moduleBlogPostCollection {
+      items {
+        linkedFrom {
+          pageCollection(limit: 1) {
+            items {
+              slug
+            }
+          }
+        }
+        title
+        publishedDate
+        readTime
+        headerImage {
+          title
+          description
+          contentType
+          url
+          width
+          height
+        }
+        __typename
+      }
+    }
+  }
+`;
 export const AllPagesDocument = gql`
   query AllPages {
     pageCollection {
@@ -456,6 +833,12 @@ export const LandingPageDocument = gql`
             ... on ModuleAboutMe {
               ...ModuleAboutMe
             }
+            ... on ModuleBlogPost {
+              ...ModuleBlogPost
+            }
+            ... on ModuleContactMe {
+              ...ModuleContactMe
+            }
             ... on ModulePageHeader {
               ...ModulePageHeader
             }
@@ -474,6 +857,53 @@ export const LandingPageDocument = gql`
     }
   }
   ${ModuleAboutMeFragmentDoc}
+  ${ModuleBlogPostFragmentDoc}
+  ${ModuleContactMeFragmentDoc}
+  ${ModulePageHeaderFragmentDoc}
+  ${ModuleProjectsFragmentDoc}
+  ${ModuleServicesFragmentDoc}
+  ${ModuleWorkHistoryFragmentDoc}
+`;
+export const PageBySlugDocument = gql`
+  query PageBySlug($slug: String!) {
+    pageCollection(where: { slug: $slug }, limit: 1) {
+      items {
+        slug
+        sys {
+          id
+        }
+        modulesCollection(limit: 10) {
+          items {
+            __typename
+            ... on ModuleAboutMe {
+              ...ModuleAboutMe
+            }
+            ... on ModuleBlogPost {
+              ...ModuleBlogPost
+            }
+            ... on ModuleContactMe {
+              ...ModuleContactMe
+            }
+            ... on ModulePageHeader {
+              ...ModulePageHeader
+            }
+            ... on ModuleProjects {
+              ...ModuleProjects
+            }
+            ... on ModuleServices {
+              ...ModuleServices
+            }
+            ... on ModuleWorkHistory {
+              ...ModuleWorkHistory
+            }
+          }
+        }
+      }
+    }
+  }
+  ${ModuleAboutMeFragmentDoc}
+  ${ModuleBlogPostFragmentDoc}
+  ${ModuleContactMeFragmentDoc}
   ${ModulePageHeaderFragmentDoc}
   ${ModuleProjectsFragmentDoc}
   ${ModuleServicesFragmentDoc}
@@ -492,6 +922,12 @@ export const PageByIdDocument = gql`
           ... on ModuleAboutMe {
             ...ModuleAboutMe
           }
+          ... on ModuleBlogPost {
+            ...ModuleBlogPost
+          }
+          ... on ModuleContactMe {
+            ...ModuleContactMe
+          }
           ... on ModulePageHeader {
             ...ModulePageHeader
           }
@@ -509,6 +945,8 @@ export const PageByIdDocument = gql`
     }
   }
   ${ModuleAboutMeFragmentDoc}
+  ${ModuleBlogPostFragmentDoc}
+  ${ModuleContactMeFragmentDoc}
   ${ModulePageHeaderFragmentDoc}
   ${ModuleProjectsFragmentDoc}
   ${ModuleServicesFragmentDoc}

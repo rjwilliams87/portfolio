@@ -1,14 +1,14 @@
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Manrope } from "next/font/google";
 
-import { Contact, Navigation } from "@/global/components";
+import { Footer, Navigation } from "@/global/components";
 
 import "./globals.css";
 
-const poppins = Poppins({
-  subsets: ["devanagari", "latin", "latin-ext"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+const manrope = Manrope({
+  subsets: ["latin", "latin-ext"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -25,10 +25,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={poppins.className}>
-        <Navigation />
-        {children}
-        <Contact />
+      <body className={manrope.className}>
+        <div>
+          <main className="relative overflow-hidden z-10 bg-brand-black">{children}</main>
+          <Footer />
+        </div>
       </body>
       <GoogleAnalytics gaId={NEXT_PUBLIC_GAID} />
     </html>

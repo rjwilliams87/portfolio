@@ -4,19 +4,15 @@ import { documentToReactComponents, type Options } from "@contentful/rich-text-r
 import { BLOCKS, INLINES } from "@contentful/rich-text-types";
 
 import { HeaderEntry } from "@/data/schema";
-import { RotatingCTA } from "@/global/components";
+import { SocialLinksBox } from "@/global/components";
 
 import s from "./page-header.module.css";
 
 const OPTIONS: Options = {
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (_, children) => (
-      <p className="text-xl lg:text-2xl uppercase">{children}</p>
-    ),
+    [BLOCKS.PARAGRAPH]: (_, children) => <p className="text-lg sm:text-xl sm:w-3/4">{children}</p>,
     [BLOCKS.HEADING_1]: (_, children) => (
-      <p style={{ lineHeight: "95%" }} className="text-7xl lg:text-9xl font-semibold">
-        {children}
-      </p>
+      <p className="text-4xl sm:text-5xl lg:text-7xl pb-6 lg:pb-8 font-medium">{children}</p>
     ),
     [BLOCKS.HEADING_2]: (_, children) => <p className="text-3xl lg:text-5xl">{children}</p>,
     [INLINES.HYPERLINK]: (node, children) => (
@@ -30,7 +26,7 @@ const OPTIONS: Options = {
 export function PageHeader(props: HeaderEntry) {
   const { image, layout, size, text } = props;
 
-  const containerStyles = clsx(s["container-base"], {
+  const containerStyles = clsx(s["container-base"], "text-floral-white", {
     [s["container-large"]]: size === "large",
     [s["container-flex-row"]]: layout === "image-left" || layout === "image-right",
     [s["container-flex-col"]]: layout === "image-top" || layout === "image-bottom",
@@ -52,16 +48,18 @@ export function PageHeader(props: HeaderEntry) {
   });
 
   return (
-    <>
-      <div className={containerStyles}>
-        <div className={textStyles}>{documentToReactComponents(text.json, OPTIONS)}</div>
-        {image && (
-          <div className={imageStyles}>
-            <Image src={image.url} alt={image.description || ""} objectFit="cover" layout="fill" />
-          </div>
-        )}
+    <div className={containerStyles}>
+      <div className={textStyles}>
+        {documentToReactComponents(text.json, OPTIONS)}
+        <div className="pt-10">
+          <SocialLinksBox />
+        </div>
       </div>
-      <RotatingCTA text="CLICK HERE • LET'S WORK TOGETHER • " />
-    </>
+      {image && (
+        <div className={imageStyles}>
+          <Image src={image.url} alt={image.description || ""} objectFit="cover" layout="fill" />
+        </div>
+      )}
+    </div>
   );
 }

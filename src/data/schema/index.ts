@@ -1,4 +1,6 @@
 export * from "./about-schema";
+export * from "./blog-schema";
+export * from "./contact-me-schema";
 export * from "./header-schema";
 export * from "./image-schema";
 export * from "./page-schema";

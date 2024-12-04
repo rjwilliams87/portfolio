@@ -1,22 +1,37 @@
 export const NAVIGATION_ITEMS = [
   {
-    href: "#work",
-    label: "WORK",
-  },
-  {
-    href: "#projects",
-    label: "PROJECTS",
+    href: "#about",
+    label: "About",
   },
   {
     href: "#services",
-    label: "SERVICES",
+    label: "Services",
+  },
+  // {
+  //   href: "/blog",
+  //   label: "Blog",
+  // },
+  {
+    href: "/contact",
+    label: "Contact",
+  },
+];
+
+export const NAVIGATION_ITEMS_WITH_BLOG = [
+  {
+    href: "/#about",
+    label: "About",
   },
   {
-    href: "#about",
-    label: "ABOUT",
+    href: "/#services",
+    label: "Services",
   },
+  // {
+  //   href: "/blog",
+  //   label: "Blog",
+  // },
   {
-    href: "#contact",
-    label: "CONTACT",
+    href: "/contact",
+    label: "Contact",
   },
 ];

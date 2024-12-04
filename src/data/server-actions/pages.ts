@@ -8,6 +8,9 @@ import {
   PageByIdDocument,
   PageByIdQuery,
   PageByIdQueryVariables,
+  PageBySlugDocument,
+  PageBySlugQuery,
+  PageBySlugQueryVariables,
 } from "@/data/codegen/operations";
 import { pageSchema } from "@/data/schema";
 import { getUrqlClient } from "@/data/urql";
@@ -35,4 +38,17 @@ export async function getPageById(id: string) {
     id,
   });
   return results;
+}
+
+export async function getPageBySlug(slug: string) {
+  const { client } = getUrqlClient();
+  const results = await client.query<PageBySlugQuery, PageBySlugQueryVariables>(
+    PageBySlugDocument,
+    {
+      slug,
+    },
+  );
+  const _page = results.data?.pageCollection?.items[0];
+  const page = pageSchema.parse(_page);
+  return { data: page, error: results.error };
 }
